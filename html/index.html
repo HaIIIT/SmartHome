@@ -1,9 +1,361 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Smart Home</title>
+    <!--Favicon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../ico/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../ico/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../ico/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../ico/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../ico/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../ico/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../ico/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../ico/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../ico/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../ico/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../ico/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../ico/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./ico/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--End Favicon-->
+    <link rel="stylesheet" href="../css/index.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <!-- =====================================
+        LOGO INTRO
+    ====================================== -->
+    <div class="intro" id="intro">
+      <img
+        src="../img/logo.png"
+        alt="Smart Home"
+        class="intro-logo"
+        id="introLogo"
+      />
+    </div>
+
+    <!-- =====================================
+        HEADER
+    ====================================== -->
+    <header class="header" id="header">
+      <!-- Logo -->
+      <a href="#home" class="header-logo">
+        <img src="../img/logo.png" alt="Smart Home" />
+      </a>
+
+      <!-- Navigation -->
+      <nav class="navbar">
+        <a href="#home" class="nav-link"> Trang chủ </a>
+
+        <a href="#about" class="nav-link"> Giới thiệu </a>
+
+        <a href="#contact" class="nav-link"> Liên hệ </a>
+      </nav>
+
+      <!-- Đăng nhập -->
+      <a href="login.html" class="header-login">
+        <i class="fa-solid fa-right-to-bracket"></i>
+
+        <span>Đăng nhập</span>
+      </a>
+    </header>
+
+    <!-- =====================================
+        WELCOME
+    ====================================== -->
+    <main class="welcome" id="home">
+      <div class="welcome-content">
+        <p class="small-title">SMART HOME SYSTEM</p>
+
+        <h1>
+          Chào mừng đến với
+
+          <span> Smart Home </span>
+        </h1>
+
+        <p class="description">
+          Hệ thống nhà thông minh giúp bạn theo dõi, quản lý và kiểm soát ngôi
+          nhà một cách thuận tiện, hiện đại và an toàn.
+        </p>
+
+        <button class="login-btn" id="loginBtn" type="button">Đăng nhập</button>
+      </div>
+    </main>
+    <!-- =====================================
+      GIỚI THIỆU
+    ====================================== -->
+
+    <section class="about" id="about">
+      <div class="section-container">
+        <div class="section-heading">
+          <p class="section-subtitle">VỀ CHÚNG TÔI</p>
+
+          <h2>
+            Giải pháp thông minh cho
+            <span>ngôi nhà hiện đại</span>
+          </h2>
+
+          <p>
+            SmartHome Technology là đơn vị chuyên nghiên cứu và phát triển các
+            giải pháp nhà thông minh, hướng đến sự an toàn, tiện nghi và khả
+            năng quản lý ngôi nhà một cách dễ dàng.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Nhà thông minh -->
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fa-solid fa-house-signal"></i>
+            </div>
+
+            <h3>Nhà thông minh</h3>
+
+            <p>
+              Kết nối các thiết bị trong ngôi nhà thành một hệ thống thống nhất,
+              giúp người dùng theo dõi và điều khiển thuận tiện.
+            </p>
+          </div>
+
+          <!-- An ninh & kiểm soát -->
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>An ninh & kiểm soát</h3>
+
+            <p>
+              Hỗ trợ kiểm soát cửa ra vào, phát hiện chuyển động và ghi nhận các
+              sự kiện bất thường trong ngôi nhà.
+            </p>
+          </div>
+
+          <!-- Giám sát môi trường -->
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fa-solid fa-temperature-half"></i>
+            </div>
+
+            <h3>Giám sát môi trường</h3>
+
+            <p>
+              Theo dõi nhiệt độ, độ ẩm và chất lượng không khí nhằm cung cấp
+              thông tin môi trường theo thời gian thực.
+            </p>
+          </div>
+
+          <!-- Cảnh báo thông minh -->
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <h3>Cảnh báo thông minh</h3>
+
+            <p>
+              Gửi thông báo khi hệ thống phát hiện các trạng thái bất thường để
+              người dùng có thể nhanh chóng kiểm tra và xử lý.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================
+      LIÊN HỆ
+    ====================================== -->
+
+    <section class="contact" id="contact">
+      <div class="section-container">
+        <div class="section-heading">
+          <p class="section-subtitle">LIÊN HỆ</p>
+
+          <h2>
+            Kết nối với
+            <span>SmartHome Technology</span>
+          </h2>
+
+          <p>
+            Liên hệ với chúng tôi để được tư vấn về các giải pháp nhà thông minh
+            và hệ thống IoT.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- THÔNG TIN LIÊN HỆ -->
+
+          <div class="contact-info">
+            <h3>Thông tin liên hệ</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+
+              <div>
+                <h4>Địa chỉ</h4>
+                <p>TP. Vĩnh Long, Việt Nam</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+
+              <div>
+                <h4>Điện thoại</h4>
+                <p>0123 456 789</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+                <h4>Email</h4>
+                <p>contact@smarthome-demo.vn</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+
+              <div>
+                <h4>Thời gian làm việc</h4>
+
+                <p>
+                  Thứ 2 - Thứ 7<br />
+                  08:00 - 17:00
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM LIÊN HỆ -->
+
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="fullname"> Họ và tên </label>
+
+              <input type="text" id="fullname" placeholder="Nhập họ và tên" />
+            </div>
+
+            <div class="form-group">
+              <label for="email"> Email </label>
+
+              <input type="email" id="email" placeholder="example@gmail.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject"> Chủ đề </label>
+
+              <input
+                type="text"
+                id="subject"
+                placeholder="Bạn cần hỗ trợ về vấn đề gì?"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message"> Nội dung </label>
+
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Nhập nội dung..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+
+              <span>Gửi liên hệ</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================
+      FOOTER
+    ====================================== -->
+
+    <footer class="footer">
+      <img src="../img/logo.png" alt="Smart Home" />
+
+      <p>© 2026 SmartHome Technology. Smart Home Solutions.</p>
+    </footer>
+    <!-- JavaScript -->
+    <script src="../js/index.js"></script>
+  </body>
 </html>
