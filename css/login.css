@@ -1,0 +1,561 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: linear-gradient(135deg, #f8fbff, #edf7ff);
+
+  color: #0b2341;
+}
+
+/* =========================================
+   BACK HOME - TRONG LOGIN CARD
+========================================= */
+
+.back-home {
+  width: fit-content;
+
+  margin-bottom: 15px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 12px;
+
+  border-radius: 10px;
+
+  color: #64748b;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.back-home i {
+  font-size: 12px;
+}
+
+.back-home:hover {
+  color: #0789e8;
+
+  background: #eef8ff;
+
+  transform: translateX(-3px);
+}
+.back-home {
+  opacity: 0;
+
+  animation: backHomeAppear 0.5s ease 0.25s forwards;
+}
+
+@keyframes backHomeAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  padding: 40px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   LOGIN CONTAINER
+========================================= */
+
+.login-container {
+  width: 460px;
+  max-width: 100%;
+
+  padding: 45px 45px 40px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(215, 230, 242, 0.9);
+
+  border-radius: 26px;
+
+  box-shadow: 0 20px 60px rgba(30, 100, 160, 0.12);
+
+  opacity: 0;
+
+  transform: translateY(35px) scale(0.97);
+
+  animation: loginAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes loginAppear {
+  0% {
+    opacity: 0;
+
+    transform: translateY(35px) scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.login-logo {
+  display: block;
+
+  width: fit-content;
+
+  margin: 0 auto 15px;
+}
+
+.login-logo img {
+  display: block;
+
+  width: 170px;
+  height: auto;
+}
+.login-logo {
+  opacity: 0;
+
+  transform: translateY(-10px) scale(0.9);
+
+  animation: logoLoginAppear 0.6s ease 0.25s forwards;
+}
+
+@keyframes logoLoginAppear {
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+/* =========================================
+   HEADING
+========================================= */
+
+.login-heading {
+  margin-bottom: 35px;
+
+  text-align: center;
+}
+
+.login-heading h1 {
+  margin-bottom: 10px;
+
+  color: #0b2341;
+
+  font-size: 30px;
+}
+
+.login-heading p {
+  color: #718096;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.login-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.form-group label {
+  color: #243b53;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-box {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.input-box input {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 48px;
+
+  border: 1px solid #d9e4ec;
+
+  border-radius: 13px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #0b2341;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.input-box input::placeholder {
+  color: #a2afbd;
+}
+
+.input-box input:focus {
+  border-color: #168cf0;
+
+  box-shadow: 0 0 0 4px rgba(22, 140, 240, 0.1);
+}
+.input-icon {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.input-box:focus-within .input-icon {
+  color: #168cf0;
+
+  transform: scale(1.1);
+}
+/* =========================================
+   INPUT ICON
+========================================= */
+
+.input-icon {
+  position: absolute;
+
+  left: 17px;
+
+  color: #8295a8;
+
+  font-size: 15px;
+
+  pointer-events: none;
+
+  transition: color 0.25s ease;
+}
+
+.input-box:focus-within .input-icon {
+  color: #168cf0;
+}
+
+/* =========================================
+   SHOW PASSWORD
+========================================= */
+
+.show-password {
+  position: absolute;
+
+  right: 15px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #8295a8;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.show-password:hover {
+  color: #168cf0;
+
+  background: #eef8ff;
+}
+.show-password i {
+  transition: transform 0.2s ease;
+}
+
+.show-password:active i {
+  transform: scale(0.85);
+}
+/* =========================================
+   ERROR
+========================================= */
+
+.error-message {
+  min-height: 15px;
+
+  color: #e5484d;
+
+  font-size: 12px;
+}
+
+/* Input lỗi */
+
+.input-box.error input {
+  border-color: #e5484d;
+
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.08);
+}
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.form-options {
+  margin-top: -5px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.remember {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.remember input {
+  accent-color: #168cf0;
+
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: #168cf0;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-submit {
+  width: 100%;
+  height: 52px;
+
+  margin-top: 3px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #168cf0, #63b7f5);
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(22, 140, 240, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.login-submit:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 30px rgba(22, 140, 240, 0.3);
+}
+
+.login-submit:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.login-status {
+  display: none;
+
+  padding: 12px 15px;
+
+  border-radius: 11px;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+.login-status.error {
+  display: block;
+
+  color: #c53030;
+
+  background: #fff2f2;
+
+  border: 1px solid #ffd6d6;
+}
+
+.login-status.success {
+  display: block;
+
+  color: #16834b;
+
+  background: #effcf5;
+
+  border: 1px solid #c8f1d8;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .login-page {
+    padding: 90px 18px 30px;
+  }
+
+  .login-container {
+    padding: 35px 25px 30px;
+
+    border-radius: 22px;
+  }
+
+  .login-logo img {
+    width: 150px;
+  }
+
+  .login-heading h1 {
+    font-size: 26px;
+  }
+}
+/* =========================================
+   LOGIN FORM ANIMATION
+========================================= */
+
+.login-form .form-group,
+.login-form .form-options,
+.login-form .login-submit {
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  animation: formItemAppear 0.5s ease forwards;
+}
+
+/* Username */
+
+.login-form .form-group:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+/* Password */
+
+.login-form .form-group:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+/* Remember + forgot password */
+
+.login-form .form-options {
+  animation-delay: 0.7s;
+}
+
+/* Login button */
+
+.login-form .login-submit {
+  animation-delay: 0.8s;
+}
+
+@keyframes formItemAppear {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}

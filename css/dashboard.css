@@ -1,0 +1,818 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #f5f9fd;
+
+  color: #0b2341;
+}
+
+/* =========================================
+   DASHBOARD LAYOUT
+========================================= */
+
+.dashboard-layout {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/*
+  Sidebar rộng 255px
+  left: 16px
+  khoảng cách tới main: 16px
+
+  => 16 + 255 + 16 = 287px
+*/
+
+.main-content {
+  min-height: 100vh;
+
+  margin-left: 287px;
+
+  padding: 16px 16px 30px 0;
+}
+
+/* =========================================
+   DASHBOARD CONTENT
+========================================= */
+
+.dashboard-content {
+  padding: 32px 12px;
+}
+
+/* =========================================
+   WELCOME DASHBOARD
+========================================= */
+
+.welcome-dashboard {
+  padding: 30px 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: linear-gradient(135deg, #ffffff, #f4faff);
+
+  border: 1px solid #e3edf5;
+
+  border-radius: 22px;
+
+  box-shadow: 0 10px 35px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: dashboardContentAppear 0.6s ease 0.15s forwards;
+}
+
+/* =========================================
+   WELCOME TEXT
+========================================= */
+
+.welcome-label {
+  margin-bottom: 8px;
+
+  color: #168cf0;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.welcome-dashboard h2 {
+  margin-bottom: 8px;
+
+  color: #0b2341;
+
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.welcome-dashboard h2 span {
+  color: #168cf0;
+}
+
+.welcome-dashboard > div > p:last-child {
+  color: #7b8da1;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   SYSTEM STATUS
+========================================= */
+
+.system-status {
+  padding: 11px 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  background: #effcf5;
+
+  border: 1px solid #d5f3e2;
+
+  border-radius: 30px;
+
+  color: #26865a;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #34b77a;
+
+  box-shadow: 0 0 0 4px rgba(52, 183, 122, 0.12);
+
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* =========================================
+   DASHBOARD PLACEHOLDER
+========================================= */
+
+.dashboard-placeholder {
+  min-height: 330px;
+
+  margin-top: 22px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px dashed #cfdde9;
+
+  border-radius: 22px;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: dashboardContentAppear 0.6s ease 0.3s forwards;
+}
+
+.dashboard-placeholder > i {
+  margin-bottom: 18px;
+
+  color: #168cf0;
+
+  font-size: 35px;
+}
+
+.dashboard-placeholder h3 {
+  margin-bottom: 8px;
+
+  color: #0b2341;
+
+  font-size: 18px;
+}
+
+.dashboard-placeholder p {
+  max-width: 450px;
+
+  color: #8495a8;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes dashboardContentAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(52, 183, 122, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(52, 183, 122, 0.05);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/*
+  Khi Sidebar chuyển sang chế độ mobile,
+  main không cần chừa 287px nữa.
+*/
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+
+    padding: 12px;
+  }
+
+  .dashboard-content {
+    padding: 25px 0;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    padding: 20px 0;
+  }
+
+  .welcome-dashboard {
+    padding: 25px 20px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .welcome-dashboard h2 {
+    font-size: 22px;
+  }
+
+  .system-status {
+    padding: 10px 14px;
+  }
+
+  .dashboard-placeholder {
+    min-height: 280px;
+
+    margin-top: 16px;
+
+    padding: 25px 20px;
+  }
+
+  .dashboard-placeholder > i {
+    font-size: 30px;
+  }
+}
+/* =========================================
+   SENSOR GRID
+========================================= */
+
+.sensor-grid {
+  margin-top: 22px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.sensor-card {
+  min-width: 0;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3edf5;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 30px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: dashboardContentAppear 0.55s ease forwards;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.sensor-card:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.sensor-card:nth-child(2) {
+  animation-delay: 0.32s;
+}
+
+.sensor-card:nth-child(3) {
+  animation-delay: 0.39s;
+}
+
+.sensor-card:nth-child(4) {
+  animation-delay: 0.46s;
+}
+
+.sensor-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #d4e8f7;
+
+  box-shadow: 0 14px 35px rgba(30, 100, 160, 0.1);
+}
+
+/* =========================================
+   SENSOR HEADER
+========================================= */
+
+.sensor-card-header {
+  margin-bottom: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.sensor-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  font-size: 19px;
+}
+
+/* Temperature */
+
+.sensor-icon.temperature {
+  color: #f26a4f;
+  background: #fff1ed;
+}
+
+/* Humidity */
+
+.sensor-icon.humidity {
+  color: #168cf0;
+  background: #eaf6ff;
+}
+
+/* Air */
+
+.sensor-icon.air {
+  color: #31a87c;
+  background: #ecfaf5;
+}
+
+/* Motion */
+
+.sensor-icon.motion {
+  color: #8b68d8;
+  background: #f3efff;
+}
+
+/* =========================================
+   SENSOR STATE
+========================================= */
+
+.sensor-state {
+  padding: 6px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.sensor-state.online {
+  color: #26865a;
+  background: #effcf5;
+}
+
+/* =========================================
+   SENSOR INFO
+========================================= */
+
+.sensor-info > p {
+  margin-bottom: 8px;
+
+  color: #6f8296;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sensor-info h3 {
+  margin-bottom: 7px;
+
+  color: #0b2341;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sensor-info h3 small {
+  margin-left: 2px;
+
+  color: #7d8fa1;
+
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sensor-info h3.text-value {
+  font-size: 23px;
+}
+
+.sensor-description {
+  color: #96a5b5;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   DASHBOARD BOTTOM GRID
+========================================= */
+
+.dashboard-grid {
+  margin-top: 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(0, 1fr);
+
+  gap: 18px;
+}
+
+/* =========================================
+   PANEL
+========================================= */
+
+.dashboard-panel {
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3edf5;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 30px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: dashboardContentAppear 0.6s ease 0.55s forwards;
+}
+
+.panel-header {
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.panel-label {
+  margin-bottom: 5px;
+
+  color: #168cf0;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.panel-header h3 {
+  color: #0b2341;
+
+  font-size: 17px;
+}
+
+.panel-link {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #168cf0;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.panel-link i {
+  font-size: 9px;
+
+  transition: transform 0.25s ease;
+}
+
+.panel-link:hover i {
+  transform: translateX(3px);
+}
+
+/* =========================================
+   DEVICE LIST
+========================================= */
+
+.device-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-item {
+  padding: 15px 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  border-bottom: 1px solid #edf2f7;
+}
+
+.device-item:last-child {
+  border-bottom: none;
+}
+
+.device-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eef8ff;
+
+  color: #168cf0;
+
+  font-size: 15px;
+}
+
+.device-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.device-info strong {
+  color: #263d53;
+
+  font-size: 12px;
+}
+
+.device-info span {
+  color: #98a6b5;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   DEVICE STATUS
+========================================= */
+
+.device-status {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  white-space: nowrap;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.device-status > span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.device-status.safe {
+  color: #2a8a60;
+}
+
+.device-status.safe > span {
+  background: #34b77a;
+}
+
+.device-status.off {
+  color: #8999a9;
+}
+
+.device-status.off > span {
+  background: #a7b3bf;
+}
+
+/* =========================================
+   ALERT LIST
+========================================= */
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-item {
+  padding: 14px 0;
+
+  display: flex;
+
+  gap: 12px;
+
+  border-bottom: 1px solid #edf2f7;
+}
+
+.alert-icon {
+  width: 39px;
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 14px;
+}
+
+.alert-item.warning .alert-icon {
+  color: #e09a24;
+  background: #fff8e8;
+}
+
+.alert-item.info .alert-icon {
+  color: #168cf0;
+  background: #eef8ff;
+}
+
+.alert-info {
+  min-width: 0;
+}
+
+.alert-info strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #263d53;
+
+  font-size: 12px;
+}
+
+.alert-info p {
+  margin-bottom: 5px;
+
+  color: #7e8fa0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.alert-info span {
+  color: #a0adba;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   SAFE MESSAGE
+========================================= */
+
+.alert-empty {
+  padding-top: 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #4d9171;
+
+  font-size: 10px;
+}
+
+.alert-empty i {
+  color: #34b77a;
+}
+
+/* =========================================
+   RESPONSIVE DASHBOARD CARDS
+========================================= */
+
+@media (max-width: 1200px) {
+  .sensor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sensor-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .sensor-card {
+    padding: 19px;
+  }
+
+  .dashboard-grid {
+    gap: 14px;
+  }
+
+  .dashboard-panel {
+    padding: 20px;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+  }
+
+  .device-status {
+    font-size: 9px;
+  }
+}

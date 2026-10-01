@@ -1,0 +1,421 @@
+<!doctype html>
+
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Smart Home | Dashboard</title>
+
+    <!-- =====================================
+       FAVICON
+  ====================================== -->
+
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../ico/apple-icon-57x57.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../ico/apple-icon-60x60.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../ico/apple-icon-72x72.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../ico/apple-icon-76x76.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../ico/apple-icon-114x114.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../ico/apple-icon-120x120.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../ico/apple-icon-144x144.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../ico/apple-icon-152x152.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../ico/apple-icon-180x180.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../ico/android-icon-192x192.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../ico/favicon-96x96.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+
+    <link rel="manifest" href="../ico/manifest.json" />
+
+    <meta name="msapplication-TileColor" content="#ffffff" />
+
+    <meta name="msapplication-TileImage" content="../ico/ms-icon-144x144.png" />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- =====================================
+       FONT AWESOME
+  ====================================== -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- =====================================
+       COMPONENT CSS
+  ====================================== -->
+
+    <link rel="stylesheet" href="../components/sidebar/sidebar.css" />
+
+    <link rel="stylesheet" href="../components/topbar/topbar.css" />
+
+    <!-- Dashboard CSS -->
+
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+
+  <body data-page="dashboard">
+    <div class="dashboard-layout">
+      <!-- =====================================
+         SIDEBAR COMPONENT
+    ====================================== -->
+
+      <div id="sidebarContainer"></div>
+
+      <!-- =====================================
+         MAIN
+    ====================================== -->
+
+      <main class="main-content">
+        <!-- TOPBAR COMPONENT -->
+
+        <div id="topbarContainer"></div>
+
+        <!-- =====================================
+           DASHBOARD CONTENT
+      ====================================== -->
+
+        <section class="dashboard-content">
+          <div class="welcome-dashboard">
+            <div>
+              <p class="welcome-label">SMART HOME SYSTEM</p>
+
+              <h2>
+                Xin chào,
+                <span>Người dùng</span>
+              </h2>
+
+              <p>Đây là tổng quan hệ thống Smart Home của bạn.</p>
+            </div>
+
+            <div class="system-status">
+              <span class="status-dot"></span>
+
+              <span> Hệ thống đang hoạt động </span>
+            </div>
+          </div>
+
+          <!-- =====================================
+             NỘI DUNG DASHBOARD
+        ====================================== -->
+
+          <!-- =====================================
+     SENSOR OVERVIEW
+====================================== -->
+
+          <div class="sensor-grid">
+            <!-- Temperature -->
+            <div class="sensor-card">
+              <div class="sensor-card-header">
+                <div class="sensor-icon temperature">
+                  <i class="fa-solid fa-temperature-half"></i>
+                </div>
+
+                <span class="sensor-state online"> Hoạt động </span>
+              </div>
+
+              <div class="sensor-info">
+                <p>Nhiệt độ</p>
+
+                <h3>
+                  <span id="temperatureValue">28</span>
+                  <small>°C</small>
+                </h3>
+
+                <span class="sensor-description">
+                  Nhiệt độ phòng hiện tại
+                </span>
+              </div>
+            </div>
+
+            <!-- Humidity -->
+            <div class="sensor-card">
+              <div class="sensor-card-header">
+                <div class="sensor-icon humidity">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <span class="sensor-state online"> Hoạt động </span>
+              </div>
+
+              <div class="sensor-info">
+                <p>Độ ẩm</p>
+
+                <h3>
+                  <span id="humidityValue">72</span>
+                  <small>%</small>
+                </h3>
+
+                <span class="sensor-description">
+                  Độ ẩm không khí hiện tại
+                </span>
+              </div>
+            </div>
+
+            <!-- Air quality -->
+            <div class="sensor-card">
+              <div class="sensor-card-header">
+                <div class="sensor-icon air">
+                  <i class="fa-solid fa-wind"></i>
+                </div>
+
+                <span class="sensor-state online"> Hoạt động </span>
+              </div>
+
+              <div class="sensor-info">
+                <p>Chất lượng không khí</p>
+
+                <h3 class="text-value" id="airQualityValue">Tốt</h3>
+
+                <span class="sensor-description">
+                  Không phát hiện khí bất thường
+                </span>
+              </div>
+            </div>
+
+            <!-- Motion -->
+            <div class="sensor-card">
+              <div class="sensor-card-header">
+                <div class="sensor-icon motion">
+                  <i class="fa-solid fa-person-walking"></i>
+                </div>
+
+                <span class="sensor-state online"> Hoạt động </span>
+              </div>
+
+              <div class="sensor-info">
+                <p>Chuyển động</p>
+
+                <h3 class="text-value" id="motionValue">Không</h3>
+
+                <span class="sensor-description">
+                  Không phát hiện chuyển động
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================
+     DASHBOARD DETAILS
+====================================== -->
+
+          <div class="dashboard-grid">
+            <!-- DEVICE STATUS -->
+
+            <div class="dashboard-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="panel-label">THIẾT BỊ</p>
+
+                  <h3>Trạng thái thiết bị</h3>
+                </div>
+
+                <a href="devices.html" class="panel-link">
+                  Xem tất cả
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <div class="device-list">
+                <!-- Main door -->
+
+                <div class="device-item">
+                  <div class="device-icon">
+                    <i class="fa-solid fa-door-closed"></i>
+                  </div>
+
+                  <div class="device-info">
+                    <strong> Cửa chính </strong>
+
+                    <span> RFID Door Lock </span>
+                  </div>
+
+                  <div class="device-status safe">
+                    <span></span>
+
+                    Đã khóa
+                  </div>
+                </div>
+
+                <!-- Light -->
+
+                <div class="device-item">
+                  <div class="device-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                  </div>
+
+                  <div class="device-info">
+                    <strong> Đèn phòng khách </strong>
+
+                    <span> Thiết bị chiếu sáng </span>
+                  </div>
+
+                  <div class="device-status off">
+                    <span></span>
+
+                    Đã tắt
+                  </div>
+                </div>
+
+                <!-- Alarm -->
+
+                <div class="device-item">
+                  <div class="device-icon">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </div>
+
+                  <div class="device-info">
+                    <strong> Còi cảnh báo </strong>
+
+                    <span> Hệ thống cảnh báo </span>
+                  </div>
+
+                  <div class="device-status safe">
+                    <span></span>
+
+                    Sẵn sàng
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ALERTS -->
+
+            <div class="dashboard-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="panel-label">CẢNH BÁO</p>
+
+                  <h3>Cảnh báo gần đây</h3>
+                </div>
+
+                <a href="alerts.html" class="panel-link">
+                  Xem tất cả
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <div class="alert-list">
+                <div class="alert-item warning">
+                  <div class="alert-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                  </div>
+
+                  <div class="alert-info">
+                    <strong> Phát hiện chuyển động </strong>
+
+                    <p>Có chuyển động tại cửa chính.</p>
+
+                    <span> 10 phút trước </span>
+                  </div>
+                </div>
+
+                <div class="alert-item info">
+                  <div class="alert-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                  </div>
+
+                  <div class="alert-info">
+                    <strong> Cửa chính đã mở </strong>
+
+                    <p>Xác thực RFID thành công.</p>
+
+                    <span> 35 phút trước </span>
+                  </div>
+                </div>
+
+                <div class="alert-empty">
+                  <i class="fa-solid fa-shield-halved"></i>
+
+                  <span> Hệ thống hiện không có cảnh báo nguy hiểm. </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =====================================
+       COMPONENT JS
+  ====================================== -->
+
+    <script src="../components/sidebar/sidebar.js"></script>
+
+    <script src="../components/topbar/topbar.js"></script>
+
+    <!-- Dashboard JS -->
+
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

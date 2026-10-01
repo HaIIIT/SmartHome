@@ -1,0 +1,337 @@
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+  width: 100%;
+  min-height: 84px;
+
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid #e4edf5;
+
+  border-radius: 22px;
+
+  box-shadow: 0 10px 35px rgba(30, 80, 130, 0.07);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  opacity: 0;
+
+  transform: translateY(-15px);
+
+  animation: topbarAppear 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes topbarAppear {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   LEFT
+========================================= */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.page-title h1 {
+  margin: 0 0 5px;
+
+  color: #0b2341;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.page-title p {
+  margin: 0;
+
+  color: #8292a5;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #eef8ff;
+
+  color: #0789e8;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.menu-button:hover {
+  background: #dff2ff;
+
+  transform: scale(1.05);
+}
+
+/* =========================================
+   RIGHT
+========================================= */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+/* =========================================
+   NOTIFICATION BUTTON
+========================================= */
+
+.notification-button {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e3edf5;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: #52677b;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.notification-button:hover {
+  color: #0789e8;
+
+  background: #eef8ff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(30, 100, 160, 0.1);
+}
+
+/* Red dot */
+
+.notification-dot {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 8px;
+  height: 8px;
+
+  border: 2px solid #ffffff;
+
+  border-radius: 50%;
+
+  background: #ff4d4f;
+}
+
+/* =========================================
+   USER PROFILE
+========================================= */
+
+.user-profile {
+  padding: 6px 10px 6px 6px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition: background 0.25s ease;
+}
+
+.user-profile:hover {
+  background: #f3f8fc;
+}
+
+/* Avatar */
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eaf6ff;
+
+  color: #0789e8;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.user-profile:hover .user-avatar {
+  background: #dff2ff;
+
+  transform: scale(1.04);
+}
+
+/* User info */
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.user-info strong {
+  color: #243b53;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.user-info span {
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+/* Arrow */
+
+.user-arrow {
+  margin-left: 5px;
+
+  color: #9aabba;
+
+  font-size: 11px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.user-profile:hover .user-arrow {
+  color: #0789e8;
+
+  transform: translateY(2px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .menu-button {
+    display: flex;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .topbar {
+    min-height: 72px;
+
+    padding: 0 15px;
+
+    border-radius: 18px;
+  }
+
+  .page-title h1 {
+    margin-bottom: 0;
+
+    font-size: 17px;
+  }
+
+  .page-title p {
+    display: none;
+  }
+
+  .topbar-right {
+    gap: 5px;
+  }
+
+  .notification-button {
+    width: 40px;
+    height: 40px;
+
+    font-size: 15px;
+  }
+
+  .user-profile {
+    padding: 4px;
+  }
+
+  .user-avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .user-info,
+  .user-arrow {
+    display: none;
+  }
+}

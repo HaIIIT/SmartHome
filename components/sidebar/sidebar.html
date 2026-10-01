@@ -1,0 +1,57 @@
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="dashboard.html" class="sidebar-logo">
+      <img src="../img/logo.png" alt="Smart Home" />
+    </a>
+
+    <button
+      class="sidebar-close"
+      id="sidebarClose"
+      type="button"
+      aria-label="Đóng menu"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-menu">
+    <p class="menu-title">QUẢN LÝ</p>
+
+    <a href="dashboard.html" class="sidebar-link" data-page="dashboard">
+      <i class="fa-solid fa-table-columns"></i>
+      <span>Tổng quan</span>
+    </a>
+
+    <a href="sensors.html" class="sidebar-link" data-page="sensors">
+      <i class="fa-solid fa-gauge-high"></i>
+      <span>Cảm biến</span>
+    </a>
+
+    <a href="devices.html" class="sidebar-link" data-page="devices">
+      <i class="fa-solid fa-house-signal"></i>
+      <span>Thiết bị</span>
+    </a>
+
+    <a href="alerts.html" class="sidebar-link" data-page="alerts">
+      <i class="fa-solid fa-bell"></i>
+
+      <span>Cảnh báo</span>
+
+      <span class="notification-badge" id="sidebarAlertCount"> 3 </span>
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <a href="settings.html" class="sidebar-link" data-page="settings">
+      <i class="fa-solid fa-gear"></i>
+      <span>Cài đặt</span>
+    </a>
+
+    <button type="button" class="sidebar-link logout-button" id="logoutBtn">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <span>Đăng xuất</span>
+    </button>
+  </div>
+</aside>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>

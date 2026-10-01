@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Smart Home | Cảm biến</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="../components/sidebar/sidebar.css" />
+
+    <link rel="stylesheet" href="../components/topbar/topbar.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../css/sensors.css" />
+  </head>
+
+  <body data-page="sensors">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <div id="sidebarContainer"></div>
+
+      <!-- Main -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <div id="topbarContainer"></div>
+
+        <!-- =====================================
+             SENSOR CONTENT
+        ====================================== -->
+
+        <section class="sensors-content">
+          <!-- Overview -->
+
+          <div class="sensor-overview">
+            <div>
+              <p class="section-label">SENSOR MONITORING</p>
+
+              <h2>
+                Giám sát
+                <span>cảm biến</span>
+              </h2>
+
+              <p class="overview-description">
+                Theo dõi trạng thái và dữ liệu các cảm biến trong hệ thống Smart
+                Home.
+              </p>
+            </div>
+
+            <div class="overview-status">
+              <div class="overview-status-icon">
+                <i class="fa-solid fa-satellite-dish"></i>
+              </div>
+
+              <div>
+                <strong id="activeSensorCount"> 4 / 4 </strong>
+
+                <span> Cảm biến hoạt động </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================
+               SENSOR CARDS
+          ====================================== -->
+
+          <div class="sensor-detail-grid">
+            <!-- TEMPERATURE -->
+
+            <article class="sensor-detail-card">
+              <div class="sensor-card-top">
+                <div class="sensor-icon temperature">
+                  <i class="fa-solid fa-temperature-half"></i>
+                </div>
+
+                <span class="sensor-status online">
+                  <span></span>
+
+                  Hoạt động
+                </span>
+              </div>
+
+              <div class="sensor-name">
+                <h3>Nhiệt độ</h3>
+
+                <span> DHT11 / DHT22 </span>
+              </div>
+
+              <div class="sensor-value">
+                <strong id="sensorTemperature"> 28 </strong>
+
+                <span>°C</span>
+              </div>
+
+              <div class="sensor-range">
+                <div class="range-info">
+                  <span> Trạng thái </span>
+
+                  <strong class="normal"> Bình thường </strong>
+                </div>
+
+                <div class="progress">
+                  <div
+                    class="progress-bar temperature-bar"
+                    id="temperatureBar"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="sensor-footer">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  Cập nhật:
+                </span>
+
+                <strong id="temperatureTime"> --:-- </strong>
+              </div>
+            </article>
+
+            <!-- HUMIDITY -->
+
+            <article class="sensor-detail-card">
+              <div class="sensor-card-top">
+                <div class="sensor-icon humidity">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <span class="sensor-status online">
+                  <span></span>
+
+                  Hoạt động
+                </span>
+              </div>
+
+              <div class="sensor-name">
+                <h3>Độ ẩm</h3>
+
+                <span> DHT11 / DHT22 </span>
+              </div>
+
+              <div class="sensor-value">
+                <strong id="sensorHumidity"> 72 </strong>
+
+                <span>%</span>
+              </div>
+
+              <div class="sensor-range">
+                <div class="range-info">
+                  <span> Trạng thái </span>
+
+                  <strong class="normal"> Bình thường </strong>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-bar humidity-bar" id="humidityBar"></div>
+                </div>
+              </div>
+
+              <div class="sensor-footer">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  Cập nhật:
+                </span>
+
+                <strong id="humidityTime"> --:-- </strong>
+              </div>
+            </article>
+
+            <!-- AIR QUALITY -->
+
+            <article class="sensor-detail-card">
+              <div class="sensor-card-top">
+                <div class="sensor-icon air">
+                  <i class="fa-solid fa-wind"></i>
+                </div>
+
+                <span class="sensor-status online">
+                  <span></span>
+
+                  Hoạt động
+                </span>
+              </div>
+
+              <div class="sensor-name">
+                <h3>Chất lượng không khí</h3>
+
+                <span> MQ-135 </span>
+              </div>
+
+              <div class="sensor-value">
+                <strong id="sensorAir"> Tốt </strong>
+              </div>
+
+              <div class="sensor-range">
+                <div class="range-info">
+                  <span> Trạng thái </span>
+
+                  <strong class="normal"> An toàn </strong>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-bar air-bar" id="airBar"></div>
+                </div>
+              </div>
+
+              <div class="sensor-footer">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  Cập nhật:
+                </span>
+
+                <strong id="airTime"> --:-- </strong>
+              </div>
+            </article>
+
+            <!-- MOTION -->
+
+            <article class="sensor-detail-card">
+              <div class="sensor-card-top">
+                <div class="sensor-icon motion">
+                  <i class="fa-solid fa-person-walking"></i>
+                </div>
+
+                <span class="sensor-status online">
+                  <span></span>
+
+                  Hoạt động
+                </span>
+              </div>
+
+              <div class="sensor-name">
+                <h3>Chuyển động</h3>
+
+                <span> PIR Sensor </span>
+              </div>
+
+              <div class="sensor-value">
+                <strong id="sensorMotion"> Không </strong>
+              </div>
+
+              <div class="sensor-range">
+                <div class="range-info">
+                  <span> Trạng thái </span>
+
+                  <strong class="normal" id="motionStatus"> An toàn </strong>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-bar motion-bar" id="motionBar"></div>
+                </div>
+              </div>
+
+              <div class="sensor-footer">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  Cập nhật:
+                </span>
+
+                <strong id="motionTime"> --:-- </strong>
+              </div>
+            </article>
+          </div>
+
+          <!-- =====================================
+               HISTORY
+          ====================================== -->
+
+          <div class="sensor-history">
+            <div class="history-header">
+              <div>
+                <p class="section-label">LỊCH SỬ</p>
+
+                <h3>Dữ liệu gần đây</h3>
+              </div>
+
+              <select class="history-select" id="historySensor">
+                <option value="temperature">Nhiệt độ</option>
+
+                <option value="humidity">Độ ẩm</option>
+
+                <option value="air">Chất lượng không khí</option>
+              </select>
+            </div>
+
+            <div class="history-placeholder">
+              <i class="fa-solid fa-chart-line"></i>
+
+              <div>
+                <strong> Biểu đồ dữ liệu cảm biến </strong>
+
+                <p>
+                  Biểu đồ lịch sử sẽ được kết nối với dữ liệu từ server ở bước
+                  sau.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Components -->
+    <script src="../components/sidebar/sidebar.js"></script>
+    <script src="../components/topbar/topbar.js"></script>
+
+    <!-- Page -->
+    <script src="../js/sensors.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Home | Đăng Nhập</title>
+    <!--Favicon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../ico/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../ico/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../ico/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../ico/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../ico/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../ico/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../ico/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../ico/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../ico/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../ico/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../ico/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../ico/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./ico/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--End Favicon-->
+    <link rel="stylesheet" href="../css/login.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- =====================================
+        LOGIN PAGE
+    ====================================== -->
+
+    <main class="login-page">
+      <div class="login-container">
+        <!-- Back -->
+        <a href="index.html" class="back-home">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Trang chủ</span>
+        </a>
+        <!-- Logo -->
+
+        <a href="index.html" class="login-logo">
+          <img src="../img/logo.png" alt="Smart Home" />
+        </a>
+
+        <!-- Title -->
+
+        <div class="login-heading">
+          <h1>Chào mừng trở lại</h1>
+
+          <p>Đăng nhập để quản lý hệ thống Smart Home của bạn</p>
+        </div>
+
+        <!-- =====================================
+            LOGIN FORM
+        ====================================== -->
+
+        <form class="login-form" id="loginForm">
+          <!-- Username -->
+
+          <div class="form-group">
+            <label for="username"> Tên đăng nhập </label>
+
+            <div class="input-box">
+              <i class="fa-solid fa-user input-icon"></i>
+
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Nhập tên đăng nhập"
+                autocomplete="username"
+              />
+            </div>
+
+            <small class="error-message" id="usernameError"></small>
+          </div>
+
+          <!-- Password -->
+
+          <div class="form-group">
+            <label for="password"> Mật khẩu </label>
+
+            <div class="input-box">
+              <i class="fa-solid fa-lock input-icon"></i>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Nhập mật khẩu"
+                autocomplete="current-password"
+              />
+
+              <button
+                type="button"
+                class="show-password"
+                id="showPassword"
+                aria-label="Hiện mật khẩu"
+              >
+                <i class="fa-solid fa-eye" id="eyeIcon"></i>
+              </button>
+            </div>
+
+            <small class="error-message" id="passwordError"></small>
+          </div>
+
+          <!-- Options -->
+
+          <div class="form-options">
+            <label class="remember">
+              <input type="checkbox" id="remember" />
+
+              <span> Ghi nhớ đăng nhập </span>
+            </label>
+
+            <a href="#" class="forgot-password"> Quên mật khẩu? </a>
+          </div>
+
+          <!-- Login button -->
+
+          <button type="submit" class="login-submit">
+            <span> Đăng nhập </span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- Login status -->
+
+          <div class="login-status" id="loginStatus"></div>
+        </form>
+      </div>
+    </main>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
