@@ -1,0 +1,1312 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #f5f9fd;
+  color: #0b2341;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.dashboard-layout {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: 100vh;
+
+  margin-left: 287px;
+
+  padding: 16px 16px 30px 0;
+}
+
+.devices-content {
+  padding: 32px 12px;
+}
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.devices-overview {
+  padding: 30px 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: linear-gradient(135deg, #ffffff, #f4faff);
+
+  border: 1px solid #e3edf5;
+  border-radius: 22px;
+
+  box-shadow: 0 10px 35px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  animation: deviceAppear 0.6s ease 0.15s forwards;
+}
+
+.section-label {
+  margin-bottom: 8px;
+
+  color: #168cf0;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.devices-overview h2 {
+  margin-bottom: 8px;
+
+  font-size: 26px;
+}
+
+.devices-overview h2 span {
+  color: #168cf0;
+}
+
+.overview-description {
+  color: #7b8da1;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.device-summary {
+  padding: 12px 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  background: #effcf5;
+
+  border: 1px solid #d5f3e2;
+  border-radius: 16px;
+}
+
+.summary-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #dff7ea;
+  color: #2e9b68;
+}
+
+.device-summary > div:last-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.device-summary strong {
+  color: #237d54;
+
+  font-size: 13px;
+}
+
+.device-summary span {
+  color: #6c9c84;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   DEVICE GRID
+========================================= */
+
+.device-grid {
+  margin-top: 22px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+/* =========================================
+   DEVICE CARD
+========================================= */
+
+.device-card {
+  min-width: 0;
+
+  padding: 23px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3edf5;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 30px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  animation: deviceAppear 0.55s ease forwards;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.device-card:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.device-card:nth-child(2) {
+  animation-delay: 0.32s;
+}
+
+.device-card:nth-child(3) {
+  animation-delay: 0.39s;
+}
+
+.device-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #d4e8f7;
+
+  box-shadow: 0 14px 35px rgba(30, 100, 160, 0.1);
+}
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.device-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.device-main-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.device-icon {
+  width: 47px;
+  height: 47px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  font-size: 18px;
+}
+
+.device-icon.door {
+  color: #168cf0;
+  background: #eaf6ff;
+}
+
+.device-icon.light {
+  color: #e7a426;
+  background: #fff8e8;
+}
+
+.device-icon.alarm {
+  color: #e45f5f;
+  background: #fff0f0;
+}
+
+.device-main-info h3 {
+  margin-bottom: 4px;
+
+  color: #263d53;
+
+  font-size: 14px;
+}
+
+.device-main-info span {
+  color: #98a7b6;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   ONLINE
+========================================= */
+
+.connection-status {
+  padding: 6px 8px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 20px;
+
+  background: #effcf5;
+
+  color: #26865a;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.connection-status > span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #34b77a;
+}
+
+/* =========================================
+   DOOR
+========================================= */
+
+.door-visual {
+  min-height: 145px;
+
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(145deg, #f7fbff, #edf7ff);
+}
+
+.door-visual-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  color: #168cf0;
+
+  font-size: 21px;
+
+  box-shadow: 0 7px 20px rgba(30, 100, 160, 0.09);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.door-visual-icon.open {
+  color: #32a875;
+
+  transform: scale(1.08);
+}
+
+.door-state {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+.door-state span {
+  color: #94a3b2;
+
+  font-size: 9px;
+}
+
+.door-state strong {
+  color: #263d53;
+
+  font-size: 14px;
+}
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.device-details {
+  margin-top: 17px;
+}
+
+.detail-item {
+  padding: 10px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #edf2f7;
+
+  font-size: 10px;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item > span {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #8294a5;
+}
+
+.detail-item > span i {
+  width: 15px;
+
+  color: #168cf0;
+
+  text-align: center;
+}
+
+.detail-item strong {
+  color: #2e8c61;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   OPEN DOOR BUTTON
+========================================= */
+
+.door-control-button {
+  width: 100%;
+  height: 44px;
+
+  margin-top: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #168cf0, #59b4f4);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 7px 18px rgba(22, 140, 240, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.door-control-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 23px rgba(22, 140, 240, 0.25);
+}
+
+.door-control-button:active {
+  transform: scale(0.98);
+}
+
+.door-control-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================
+   OTHER DEVICE STATE
+========================================= */
+
+.device-control-state {
+  min-height: 125px;
+
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 16px;
+
+  background: #f8fbfe;
+}
+
+.device-control-state span {
+  color: #94a3b2;
+
+  font-size: 9px;
+}
+
+.device-control-state strong {
+  color: #263d53;
+
+  font-size: 19px;
+}
+
+/* =========================================
+   SWITCH ROW
+========================================= */
+
+.device-switch-row {
+  margin-top: 20px;
+
+  padding-top: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top: 1px solid #edf2f7;
+}
+
+.device-switch-row > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.device-switch-row strong {
+  color: #344b60;
+
+  font-size: 11px;
+}
+
+.device-switch-row > div > span {
+  color: #99a7b6;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   SWITCH
+========================================= */
+
+.switch {
+  position: relative;
+
+  width: 45px;
+  height: 25px;
+
+  flex-shrink: 0;
+}
+
+.switch input {
+  width: 0;
+  height: 0;
+
+  opacity: 0;
+}
+
+.switch-slider {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 30px;
+
+  background: #d9e2ea;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+}
+
+.switch-slider::before {
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+  left: 4px;
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: 0 2px 6px rgba(30, 60, 90, 0.15);
+
+  transition: transform 0.3s ease;
+}
+
+.switch input:checked + .switch-slider {
+  background: #168cf0;
+}
+
+.switch input:checked + .switch-slider::before {
+  transform: translateX(20px);
+}
+
+/* =========================================
+   MODAL OVERLAY
+========================================= */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(11, 35, 65, 0.32);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 1000;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   CONFIRM MODAL
+========================================= */
+
+.confirm-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 390px;
+
+  padding: 31px;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  box-shadow: 0 25px 70px rgba(11, 35, 65, 0.18);
+
+  text-align: center;
+
+  transform: translateY(15px) scale(0.97);
+
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-overlay.show .confirm-modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #f4f7fa;
+
+  color: #788b9e;
+
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #168cf0;
+
+  background: #eaf6ff;
+}
+
+.modal-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #eaf6ff;
+
+  color: #168cf0;
+
+  font-size: 23px;
+}
+
+.confirm-modal h3 {
+  margin-bottom: 10px;
+
+  color: #1e3850;
+
+  font-size: 19px;
+}
+
+.confirm-modal > p {
+  color: #7c8fa1;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+.confirm-modal > p strong {
+  color: #3b5268;
+}
+
+/* =========================================
+   MODAL BUTTONS
+========================================= */
+
+.modal-actions {
+  margin-top: 25px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.modal-actions button {
+  height: 42px;
+
+  border: none;
+  border-radius: 11px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.cancel-button {
+  background: #f0f4f7;
+
+  color: #617487;
+}
+
+.cancel-button:hover {
+  background: #e7edf2;
+}
+
+.confirm-button {
+  background: #168cf0;
+
+  color: #ffffff;
+}
+
+.confirm-button:hover {
+  background: #087edc;
+}
+
+.modal-actions button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   TOAST
+========================================= */
+
+.device-toast {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  max-width: 320px;
+
+  padding: 13px 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid #d5f3e2;
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: #2c865e;
+
+  box-shadow: 0 12px 35px rgba(30, 80, 130, 0.13);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(15px);
+
+  z-index: 1100;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.device-toast.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.device-toast i {
+  color: #34b77a;
+
+  font-size: 15px;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes deviceAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .device-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+
+    padding: 12px;
+  }
+
+  .devices-content {
+    padding: 25px 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .devices-content {
+    padding: 20px 0;
+  }
+
+  .devices-overview {
+    padding: 24px 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .devices-overview h2 {
+    font-size: 22px;
+  }
+
+  .device-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .device-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .device-toast {
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+
+    max-width: none;
+  }
+}
+.door-visual-icon.opening {
+  color: #168cf0;
+}
+
+.door-visual-icon.opening i {
+  animation: doorOpeningSpin 0.75s linear infinite;
+}
+/* =========================================
+   DOOR OPENING FULLSCREEN
+========================================= */
+
+.door-loading-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(235, 244, 252, 0.72);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 2000;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.door-loading-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.door-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-loading-overlay.show .door-loading-content {
+  opacity: 1;
+
+  transform: translateY(0) scale(1);
+}
+
+/* =========================================
+   LOADER
+========================================= */
+
+.door-loader {
+  position: relative;
+
+  width: 230px;
+  height: 230px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+}
+
+/* =========================================
+   RINGS
+========================================= */
+
+.loader-ring {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border-style: solid;
+}
+
+/* vòng ngoài */
+
+.ring-one {
+  width: 220px;
+  height: 220px;
+
+  border-width: 5px;
+
+  border-color: #ffffff transparent #55b8f5 #ffffff;
+
+  box-shadow: 0 0 25px rgba(85, 184, 245, 0.13);
+
+  animation: ringRotateOne 1.5s linear infinite;
+}
+
+/* vòng giữa */
+
+.ring-two {
+  width: 175px;
+  height: 175px;
+
+  border-width: 4px;
+
+  border-color: transparent #4f8ff7 #d8ecff #4f8ff7;
+
+  opacity: 0.85;
+
+  animation: ringRotateTwo 1.15s linear infinite;
+}
+
+/* vòng trong */
+
+.ring-three {
+  width: 140px;
+  height: 140px;
+
+  border-width: 3px;
+
+  border-style: dotted;
+
+  border-color: #6ebdf5;
+
+  opacity: 0.65;
+
+  animation: ringRotateThree 2s linear infinite;
+}
+
+/* =========================================
+   LOCK
+========================================= */
+
+.loader-lock {
+  position: relative;
+
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #479bf1;
+
+  font-size: 43px;
+
+  box-shadow:
+    0 10px 35px rgba(50, 130, 210, 0.13),
+    0 0 35px rgba(90, 180, 245, 0.12);
+
+  z-index: 5;
+
+  animation: lockPulse 1.4s ease-in-out infinite;
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+.door-loading-content h2 {
+  margin: 0 0 9px;
+
+  color: #183858;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.door-loading-content p {
+  margin: 0;
+
+  color: #7890a6;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   DOTS
+========================================= */
+
+.loading-dots {
+  height: 10px;
+
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #4b9df2;
+
+  animation: loadingDot 1.2s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* =========================================
+   RING ANIMATIONS
+========================================= */
+
+@keyframes ringRotateOne {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringRotateTwo {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ringRotateThree {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   LOCK PULSE
+========================================= */
+
+@keyframes lockPulse {
+  0%,
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 10px 35px rgba(50, 130, 210, 0.13),
+      0 0 30px rgba(90, 180, 245, 0.1);
+  }
+
+  50% {
+    transform: scale(1.06);
+
+    box-shadow:
+      0 10px 35px rgba(50, 130, 210, 0.16),
+      0 0 45px rgba(90, 180, 245, 0.22);
+  }
+}
+
+/* =========================================
+   DOT ANIMATION
+========================================= */
+
+@keyframes loadingDot {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform: scale(0.75);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+  }
+}
+
+/* =========================================
+   SUCCESS STATE
+========================================= */
+
+.door-loading-overlay.success .loader-ring {
+  animation-play-state: paused;
+}
+
+.door-loading-overlay.success .loader-lock {
+  color: #32a875;
+
+  background: #f3fff9;
+
+  animation: successPop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-loading-overlay.success .loading-dots {
+  opacity: 0;
+}
+
+.door-loading-overlay.success h2 {
+  color: #26865a;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.75);
+  }
+
+  60% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+  .door-loader {
+    width: 190px;
+    height: 190px;
+  }
+
+  .ring-one {
+    width: 185px;
+    height: 185px;
+  }
+
+  .ring-two {
+    width: 148px;
+    height: 148px;
+  }
+
+  .ring-three {
+    width: 118px;
+    height: 118px;
+  }
+
+  .loader-lock {
+    width: 88px;
+    height: 88px;
+
+    font-size: 36px;
+  }
+
+  .door-loading-content h2 {
+    font-size: 21px;
+  }
+}

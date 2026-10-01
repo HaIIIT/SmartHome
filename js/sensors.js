@@ -128,4 +128,135 @@ const demoData = {
 
 document.addEventListener("DOMContentLoaded", function () {
   updateSensors(demoData);
+
+  renderDoorHistory(doorHistoryData);
 });
+/* =========================================
+   DOOR ACCESS HISTORY
+========================================= */
+
+const doorHistoryBody = document.getElementById("doorHistoryBody");
+
+const doorHistoryData = [
+  {
+    name: "Người dùng",
+    detail: "Điều khiển từ xa",
+    method: "remote",
+    time: "15:20 - 01/10/2026",
+    success: true,
+  },
+
+  {
+    name: "Người dùng",
+    detail: "RFID-001",
+    method: "rfid",
+    time: "14:32 - 01/10/2026",
+    success: true,
+  },
+
+  {
+    name: "Không xác định",
+    detail: "Thẻ RFID không hợp lệ",
+    method: "rfid",
+    time: "09:41 - 01/10/2026",
+    success: false,
+  },
+
+  {
+    name: "Người dùng",
+    detail: "Điều khiển từ xa",
+    method: "remote",
+    time: "08:15 - 01/10/2026",
+    success: true,
+  },
+];
+
+/* =========================================
+   RENDER DOOR HISTORY
+========================================= */
+
+function renderDoorHistory(data) {
+  if (!doorHistoryBody) {
+    return;
+  }
+
+  doorHistoryBody.innerHTML = "";
+
+  data.forEach(function (access) {
+    const row = document.createElement("tr");
+
+    const isRemote = access.method === "remote";
+
+    const methodIcon = isRemote ? "fa-mobile-screen-button" : "fa-id-card";
+
+    const methodName = isRemote ? "Mở từ xa" : "RFID";
+
+    row.innerHTML = `
+
+      <td>
+
+        <div class="access-user">
+
+          <div class="access-avatar">
+
+            <i class="fa-solid ${
+              access.success ? "fa-user" : "fa-user-xmark"
+            }"></i>
+
+          </div>
+
+          <div class="access-user-info">
+
+            <strong>
+              ${access.name}
+            </strong>
+
+            <span>
+              ${access.detail}
+            </span>
+
+          </div>
+
+        </div>
+
+      </td>
+
+
+      <td>
+
+        <span class="access-method">
+
+          <i class="fa-solid ${methodIcon}"></i>
+
+          ${methodName}
+
+        </span>
+
+      </td>
+
+
+      <td>
+        ${access.time}
+      </td>
+
+
+      <td>
+
+        <span class="
+          access-result
+          ${access.success ? "success" : "denied"}
+        ">
+
+          <i class="fa-solid ${access.success ? "fa-check" : "fa-xmark"}"></i>
+
+          ${access.success ? "Cho phép" : "Từ chối"}
+
+        </span>
+
+      </td>
+
+    `;
+
+    doorHistoryBody.appendChild(row);
+  });
+}

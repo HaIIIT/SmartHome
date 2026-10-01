@@ -319,6 +319,49 @@
               </div>
             </div>
           </div>
+          <!-- =====================================
+     DOOR ACCESS HISTORY
+====================================== -->
+
+          <div class="door-history">
+            <div class="history-header">
+              <div>
+                <p class="section-label">KIỂM SOÁT TRUY CẬP</p>
+
+                <h3>Lịch sử mở cửa</h3>
+              </div>
+
+              <div class="door-current-status">
+                <span class="door-status-dot"></span>
+
+                <span> Cửa hiện đang </span>
+
+                <strong id="currentDoorStatus"> Đóng </strong>
+              </div>
+            </div>
+
+            <!-- TABLE -->
+
+            <div class="door-table-wrapper">
+              <table class="door-table">
+                <thead>
+                  <tr>
+                    <th>Người truy cập</th>
+
+                    <th>Phương thức</th>
+
+                    <th>Thời gian</th>
+
+                    <th>Kết quả</th>
+                  </tr>
+                </thead>
+
+                <tbody id="doorHistoryBody">
+                  <!-- JS render -->
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
       </main>
     </div>

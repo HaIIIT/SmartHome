@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Smart Home | Thiết bị</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Components -->
+    <link rel="stylesheet" href="../components/sidebar/sidebar.css" />
+
+    <link rel="stylesheet" href="../components/topbar/topbar.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../css/devices.css" />
+  </head>
+
+  <body data-page="devices">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <div id="sidebarContainer"></div>
+
+      <main class="main-content">
+        <!-- Topbar -->
+        <div id="topbarContainer"></div>
+
+        <!-- =====================================
+             DEVICE CONTENT
+        ====================================== -->
+
+        <section class="devices-content">
+          <!-- Header -->
+
+          <div class="devices-overview">
+            <div>
+              <p class="section-label">DEVICE CONTROL</p>
+
+              <h2>
+                Quản lý
+                <span>thiết bị</span>
+              </h2>
+
+              <p class="overview-description">
+                Theo dõi trạng thái và điều khiển các thiết bị trong Smart Home.
+              </p>
+            </div>
+
+            <div class="device-summary">
+              <div class="summary-icon">
+                <i class="fa-solid fa-house-signal"></i>
+              </div>
+
+              <div>
+                <strong>3 / 3</strong>
+                <span>Thiết bị kết nối</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================
+               DEVICE GRID
+          ====================================== -->
+
+          <div class="device-grid">
+            <!-- =================================
+                 MAIN DOOR
+            ================================== -->
+
+            <article class="device-card door-card">
+              <div class="device-card-header">
+                <div class="device-main-info">
+                  <div class="device-icon door">
+                    <i class="fa-solid fa-door-closed"></i>
+                  </div>
+
+                  <div>
+                    <h3>Cửa chính</h3>
+                    <span>Smart Door Lock</span>
+                  </div>
+                </div>
+
+                <div class="connection-status">
+                  <span></span>
+
+                  Online
+                </div>
+              </div>
+
+              <div class="door-visual">
+                <div class="door-visual-icon" id="doorVisualIcon">
+                  <i class="fa-solid fa-lock" id="doorStateIcon"></i>
+                </div>
+
+                <div class="door-state">
+                  <span>Trạng thái cửa</span>
+
+                  <strong id="doorState"> Đã khóa </strong>
+                </div>
+              </div>
+
+              <div class="device-details">
+                <div class="detail-item">
+                  <span>
+                    <i class="fa-solid fa-id-card"></i>
+                    RFID
+                  </span>
+
+                  <strong>Hoạt động</strong>
+                </div>
+
+                <div class="detail-item">
+                  <span>
+                    <i class="fa-solid fa-wifi"></i>
+                    Điều khiển từ xa
+                  </span>
+
+                  <strong>Khả dụng</strong>
+                </div>
+              </div>
+
+              <button
+                class="door-control-button"
+                id="openDoorButton"
+                type="button"
+              >
+                <i class="fa-solid fa-lock-open"></i>
+
+                <span> Mở cửa từ xa </span>
+              </button>
+            </article>
+
+            <!-- =================================
+                 LIGHT
+            ================================== -->
+
+            <article class="device-card">
+              <div class="device-card-header">
+                <div class="device-main-info">
+                  <div class="device-icon light">
+                    <i class="fa-solid fa-lightbulb"></i>
+                  </div>
+
+                  <div>
+                    <h3>Đèn phòng khách</h3>
+                    <span>Smart Light</span>
+                  </div>
+                </div>
+
+                <div class="connection-status">
+                  <span></span>
+
+                  Online
+                </div>
+              </div>
+
+              <div class="device-control-state">
+                <span>Trạng thái</span>
+
+                <strong id="lightStatus"> Đã tắt </strong>
+              </div>
+
+              <div class="device-switch-row">
+                <div>
+                  <strong>Điều khiển đèn</strong>
+
+                  <span> Bật hoặc tắt thiết bị </span>
+                </div>
+
+                <label class="switch">
+                  <input type="checkbox" id="lightSwitch" />
+
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+            </article>
+
+            <!-- =================================
+                 ALARM
+            ================================== -->
+
+            <article class="device-card">
+              <div class="device-card-header">
+                <div class="device-main-info">
+                  <div class="device-icon alarm">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </div>
+
+                  <div>
+                    <h3>Còi cảnh báo</h3>
+                    <span>Alarm System</span>
+                  </div>
+                </div>
+
+                <div class="connection-status">
+                  <span></span>
+
+                  Online
+                </div>
+              </div>
+
+              <div class="device-control-state">
+                <span>Trạng thái</span>
+
+                <strong id="alarmStatus"> Sẵn sàng </strong>
+              </div>
+
+              <div class="device-switch-row">
+                <div>
+                  <strong>Kiểm tra còi</strong>
+
+                  <span> Bật còi cảnh báo thủ công </span>
+                </div>
+
+                <label class="switch">
+                  <input type="checkbox" id="alarmSwitch" />
+
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =====================================
+         CONFIRM OPEN DOOR MODAL
+    ====================================== -->
+
+    <div class="modal-overlay" id="doorModal" aria-hidden="true">
+      <div class="confirm-modal">
+        <button
+          class="modal-close"
+          id="closeDoorModal"
+          type="button"
+          aria-label="Đóng"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+          <i class="fa-solid fa-lock-open"></i>
+        </div>
+
+        <h3>Mở cửa từ xa?</h3>
+
+        <p>
+          Bạn có chắc chắn muốn mở
+          <strong>cửa chính</strong>? Thao tác này sẽ được ghi lại trong lịch sử
+          truy cập.
+        </p>
+
+        <div class="modal-actions">
+          <button class="cancel-button" id="cancelOpenDoor" type="button">
+            Hủy
+          </button>
+
+          <button class="confirm-button" id="confirmOpenDoor" type="button">
+            <i class="fa-solid fa-lock-open"></i>
+
+            Mở cửa
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- =====================================
+     DOOR OPENING LOADING
+====================================== -->
+
+    <div
+      class="door-loading-overlay"
+      id="doorLoadingOverlay"
+      aria-hidden="true"
+    >
+      <div class="door-loading-content">
+        <div class="door-loader">
+          <div class="loader-ring ring-one"></div>
+
+          <div class="loader-ring ring-two"></div>
+
+          <div class="loader-ring ring-three"></div>
+
+          <div class="loader-lock">
+            <i class="fa-solid fa-lock" id="loadingLockIcon"></i>
+          </div>
+        </div>
+
+        <h2 id="doorLoadingTitle">Đang mở cửa...</h2>
+
+        <p id="doorLoadingDescription">Vui lòng chờ trong giây lát</p>
+
+        <div class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    Vị trí sẽ kiểu:
+    <!-- modal xác nhận -->
+    <div class="modal-overlay" id="doorModal">...</div>
+
+    <!-- THÊM Ở ĐÂY -->
+    <div class="door-loading-overlay" id="doorLoadingOverlay">...</div>
+
+    <!-- toast -->
+    <div class="device-toast" id="deviceToast">...</div>
+    <!-- =====================================
+         TOAST
+    ====================================== -->
+
+    <div class="device-toast" id="deviceToast">
+      <i class="fa-solid fa-circle-check"></i>
+
+      <span id="toastMessage"> Thao tác thành công </span>
+    </div>
+
+    <!-- Components -->
+    <script src="../components/sidebar/sidebar.js"></script>
+    <script src="../components/topbar/topbar.js"></script>
+
+    <!-- Page -->
+    <script src="../js/devices.js"></script>
+  </body>
+</html>

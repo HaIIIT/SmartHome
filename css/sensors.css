@@ -634,3 +634,299 @@ body {
     text-align: center;
   }
 }
+/* =========================================
+   DOOR HISTORY
+========================================= */
+
+.door-history {
+  margin-top: 22px;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3edf5;
+
+  border-radius: 20px;
+
+  box-shadow: 0 8px 30px rgba(30, 80, 130, 0.05);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: sensorAppear 0.6s ease 0.55s forwards;
+}
+
+/* =========================================
+   CURRENT DOOR STATUS
+========================================= */
+
+.door-current-status {
+  padding: 9px 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  background: #effcf5;
+
+  border: 1px solid #d5f3e2;
+
+  border-radius: 20px;
+
+  color: #6b8e7d;
+
+  font-size: 10px;
+}
+
+.door-current-status strong {
+  color: #26865a;
+
+  font-weight: 700;
+}
+
+.door-status-dot {
+  width: 7px;
+  height: 7px;
+
+  margin-right: 2px;
+
+  border-radius: 50%;
+
+  background: #34b77a;
+
+  box-shadow: 0 0 0 4px rgba(52, 183, 122, 0.1);
+}
+
+/* =========================================
+   TABLE WRAPPER
+========================================= */
+
+.door-table-wrapper {
+  width: 100%;
+
+  margin-top: 20px;
+
+  overflow-x: auto;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.door-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.door-table th {
+  padding: 11px 14px;
+
+  border-bottom: 1px solid #e8eef4;
+
+  color: #92a1b0;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.door-table td {
+  padding: 15px 14px;
+
+  border-bottom: 1px solid #edf2f7;
+
+  color: #64788c;
+
+  font-size: 11px;
+
+  vertical-align: middle;
+}
+
+.door-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.door-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.door-table tbody tr:hover {
+  background: #f8fbfe;
+}
+
+/* =========================================
+   USER
+========================================= */
+
+.access-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.access-avatar {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eaf6ff;
+
+  color: #168cf0;
+
+  font-size: 12px;
+}
+
+.access-user-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.access-user-info strong {
+  color: #31485d;
+
+  font-size: 11px;
+}
+
+.access-user-info span {
+  color: #9aa8b7;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   ACCESS METHOD
+========================================= */
+
+.access-method {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.access-method i {
+  width: 16px;
+
+  color: #168cf0;
+
+  text-align: center;
+}
+
+/* =========================================
+   ACCESS RESULT
+========================================= */
+
+.access-result {
+  width: fit-content;
+
+  padding: 6px 9px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.access-result i {
+  font-size: 8px;
+}
+
+/* SUCCESS */
+
+.access-result.success {
+  color: #26865a;
+
+  background: #effcf5;
+}
+
+/* DENIED */
+
+.access-result.denied {
+  color: #d9534f;
+
+  background: #fff1f1;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .door-history {
+    padding: 20px;
+  }
+
+  .door-current-status {
+    width: fit-content;
+  }
+
+  .door-table {
+    min-width: 650px;
+  }
+}
+/* =========================================
+   DOOR OPENING ANIMATION
+========================================= */
+
+.door-visual-icon.opening {
+  color: #168cf0;
+
+  animation: doorOpeningSpin 0.75s linear infinite;
+}
+
+@keyframes doorOpeningSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button loading */
+
+.door-control-button.loading {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+/* Icon loading trong button */
+
+.door-control-button.loading i {
+  animation: doorButtonSpin 0.75s linear infinite;
+}
+
+@keyframes doorButtonSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
