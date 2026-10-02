@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Smart Home | Cài đặt</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="../components/topbar/topbar.css" />
+    <link rel="stylesheet" href="../components/notification/notification.css" />
+    <link rel="stylesheet" href="../css/settings.css" />
+  </head>
+
+  <body data-auth="user">
+    <div class="dashboard-layout">
+      <div id="sidebarContainer"></div>
+
+      <main class="main-content">
+        <div id="topbarContainer"></div>
+
+        <section class="settings-content">
+          <div class="settings-overview">
+            <div>
+              <p class="section-label">SYSTEM SETTINGS</p>
+              <h2>Cài đặt <span>Smart Home</span></h2>
+              <p>
+                Quản lý tài khoản, ngưỡng cảnh báo, thông báo và trạng thái hệ
+                thống.
+              </p>
+            </div>
+
+            <div class="settings-status">
+              <div class="settings-status-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+
+              <div>
+                <strong>Hệ thống sẵn sàng</strong>
+                <span>Cấu hình có thể thay đổi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            <!-- ACCOUNT -->
+            <article class="settings-card account-card">
+              <div class="card-heading">
+                <div class="card-icon account">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                  <p class="section-label">TÀI KHOẢN</p>
+                  <h3>Thông tin người dùng</h3>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="fullName">Tên hiển thị</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input id="fullName" type="text" value="Người dùng" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input
+                      id="email"
+                      type="email"
+                      value="user@smarthome.local"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="currentPassword">Mật khẩu hiện tại</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input
+                      id="currentPassword"
+                      type="password"
+                      placeholder="Nhập mật khẩu hiện tại"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="newPassword">Mật khẩu mới</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-key"></i>
+                    <input
+                      id="newPassword"
+                      type="password"
+                      placeholder="Nhập mật khẩu mới"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button
+                  class="secondary-button"
+                  id="changePasswordButton"
+                  type="button"
+                >
+                  <i class="fa-solid fa-key"></i>
+                  Đổi mật khẩu
+                </button>
+
+                <button
+                  class="primary-button"
+                  id="saveAccountButton"
+                  type="button"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Lưu thông tin
+                </button>
+              </div>
+            </article>
+
+            <!-- THRESHOLDS -->
+            <article class="settings-card threshold-card">
+              <div class="card-heading">
+                <div class="card-icon threshold">
+                  <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div>
+                  <p class="section-label">CẢNH BÁO</p>
+                  <h3>Ngưỡng cảm biến</h3>
+                </div>
+              </div>
+
+              <p class="card-description">
+                Thiết lập giới hạn để hệ thống xác định khi nào cần tạo cảnh
+                báo.
+              </p>
+
+              <div class="threshold-list">
+                <div class="threshold-item">
+                  <div class="threshold-title">
+                    <div class="sensor-mini-icon temperature">
+                      <i class="fa-solid fa-temperature-half"></i>
+                    </div>
+                    <div>
+                      <strong>Nhiệt độ</strong>
+                      <span>DHT11 / DHT22</span>
+                    </div>
+                  </div>
+
+                  <div class="threshold-inputs">
+                    <label>
+                      <span>Thấp</span>
+                      <div class="number-input">
+                        <input id="temperatureMin" type="number" value="18" />
+                        <b>°C</b>
+                      </div>
+                    </label>
+
+                    <label>
+                      <span>Cao</span>
+                      <div class="number-input">
+                        <input id="temperatureMax" type="number" value="35" />
+                        <b>°C</b>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="threshold-item">
+                  <div class="threshold-title">
+                    <div class="sensor-mini-icon humidity">
+                      <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <div>
+                      <strong>Độ ẩm</strong>
+                      <span>DHT11 / DHT22</span>
+                    </div>
+                  </div>
+
+                  <div class="threshold-inputs">
+                    <label>
+                      <span>Thấp</span>
+                      <div class="number-input">
+                        <input id="humidityMin" type="number" value="40" />
+                        <b>%</b>
+                      </div>
+                    </label>
+
+                    <label>
+                      <span>Cao</span>
+                      <div class="number-input">
+                        <input id="humidityMax" type="number" value="80" />
+                        <b>%</b>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="threshold-item">
+                  <div class="threshold-title">
+                    <div class="sensor-mini-icon air">
+                      <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <div>
+                      <strong>Chất lượng không khí</strong>
+                      <span>MQ-135</span>
+                    </div>
+                  </div>
+
+                  <div class="threshold-inputs">
+                    <label>
+                      <span>Cảnh báo</span>
+                      <div class="number-input">
+                        <input id="airWarning" type="number" value="500" />
+                        <b>ppm</b>
+                      </div>
+                    </label>
+
+                    <label>
+                      <span>Nguy hiểm</span>
+                      <div class="number-input">
+                        <input id="airDanger" type="number" value="700" />
+                        <b>ppm</b>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button
+                  class="primary-button"
+                  id="saveThresholdButton"
+                  type="button"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Lưu ngưỡng cảnh báo
+                </button>
+              </div>
+            </article>
+
+            <!-- NOTIFICATIONS -->
+            <article class="settings-card notification-card">
+              <div class="card-heading">
+                <div class="card-icon notification">
+                  <i class="fa-solid fa-bell"></i>
+                </div>
+
+                <div>
+                  <p class="section-label">THÔNG BÁO</p>
+                  <h3>Kênh nhận cảnh báo</h3>
+                </div>
+              </div>
+
+              <div class="setting-list">
+                <div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-row-icon">
+                      <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div>
+                      <strong>Thông báo trên Web</strong>
+                      <span>Hiển thị cảnh báo trực tiếp trên hệ thống</span>
+                    </div>
+                  </div>
+
+                  <label class="switch">
+                    <input id="webNotification" type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-row-icon">
+                      <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div>
+                      <strong>Thông báo Blynk</strong>
+                      <span>Gửi cảnh báo đến ứng dụng Blynk</span>
+                    </div>
+                  </div>
+
+                  <label class="switch">
+                    <input id="blynkNotification" type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-row-icon">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                      <strong>Chỉ cảnh báo quan trọng</strong>
+                      <span>Ưu tiên cảnh báo mức nguy hiểm</span>
+                    </div>
+                  </div>
+
+                  <label class="switch">
+                    <input id="importantOnly" type="checkbox" />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button
+                  class="primary-button"
+                  id="saveNotificationButton"
+                  type="button"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Lưu cài đặt thông báo
+                </button>
+              </div>
+            </article>
+
+            <!-- FAMILY MEMBERS -->
+            <article class="settings-card family-card">
+              <div class="card-heading">
+                <div class="card-icon family">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                  <p class="section-label">GIA ĐÌNH</p>
+                  <h3>Thành viên trong gia đình</h3>
+                </div>
+              </div>
+
+              <p class="card-description">
+                Quản lý những người được phép sử dụng hệ thống và truy cập cửa
+                chính.
+              </p>
+
+              <div class="member-list" id="memberList"></div>
+
+              <div class="card-footer">
+                <button
+                  class="primary-button"
+                  id="addMemberButton"
+                  type="button"
+                >
+                  <i class="fa-solid fa-user-plus"></i>
+                  Thêm thành viên
+                </button>
+              </div>
+            </article>
+
+            <!-- DOOR SECURITY -->
+            <article class="settings-card door-security-card">
+              <div class="card-heading">
+                <div class="card-icon door-security">
+                  <i class="fa-solid fa-door-closed"></i>
+                </div>
+                <div>
+                  <p class="section-label">BẢO MẬT CỬA</p>
+                  <h3>Cài đặt cửa chính</h3>
+                </div>
+              </div>
+
+              <p class="card-description">
+                Quản lý mã PIN, thẻ RFID và vân tay được phép mở cửa.
+              </p>
+
+              <div class="door-setting-block">
+                <div class="door-setting-heading">
+                  <div>
+                    <strong>Mã PIN mở cửa</strong>
+                    <span>Thay đổi mã số dùng để mở cửa chính</span>
+                  </div>
+                  <i class="fa-solid fa-key"></i>
+                </div>
+
+                <div class="pin-form">
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input
+                      id="doorPin"
+                      type="password"
+                      inputmode="numeric"
+                      maxlength="6"
+                      placeholder="Nhập mã PIN 4–6 số"
+                    />
+                  </div>
+
+                  <button
+                    class="secondary-button"
+                    id="saveDoorPinButton"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Lưu mã PIN
+                  </button>
+                </div>
+              </div>
+
+              <div class="door-setting-block">
+                <div class="door-setting-heading">
+                  <div>
+                    <strong>Thẻ RFID</strong>
+                    <span>Danh sách thẻ được cấp quyền truy cập</span>
+                  </div>
+
+                  <button
+                    class="mini-add-button"
+                    id="addRfidButton"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm thẻ
+                  </button>
+                </div>
+
+                <div class="credential-list" id="rfidList"></div>
+              </div>
+
+              <div class="door-setting-block">
+                <div class="door-setting-heading">
+                  <div>
+                    <strong>Vân tay</strong>
+                    <span>Danh sách vân tay đã đăng ký</span>
+                  </div>
+
+                  <button
+                    class="mini-add-button"
+                    id="addFingerprintButton"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm vân tay
+                  </button>
+                </div>
+
+                <div class="credential-list" id="fingerprintList"></div>
+              </div>
+            </article>
+
+            <!-- SYSTEM -->
+            <article class="settings-card system-card">
+              <div class="card-heading">
+                <div class="card-icon system">
+                  <i class="fa-solid fa-server"></i>
+                </div>
+
+                <div>
+                  <p class="section-label">HỆ THỐNG</p>
+                  <h3>Trạng thái kết nối</h3>
+                </div>
+              </div>
+
+              <div class="system-list">
+                <div class="system-row">
+                  <div class="system-name">
+                    <div class="system-icon">
+                      <i class="fa-solid fa-server"></i>
+                    </div>
+                    <div>
+                      <strong>Web Server</strong>
+                      <span>Máy chủ Smart Home</span>
+                    </div>
+                  </div>
+                  <span class="connection-badge online">
+                    <i class="fa-solid fa-circle"></i>
+                    Online
+                  </span>
+                </div>
+
+                <div class="system-row">
+                  <div class="system-name">
+                    <div class="system-icon">
+                      <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div>
+                      <strong>Database</strong>
+                      <span>MySQL / XAMPP</span>
+                    </div>
+                  </div>
+                  <span class="connection-badge demo">
+                    <i class="fa-solid fa-circle"></i>
+                    Demo
+                  </span>
+                </div>
+
+                <div class="system-row">
+                  <div class="system-name">
+                    <div class="system-icon">
+                      <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <div>
+                      <strong>Proteus / Arduino</strong>
+                      <span>Kết nối thiết bị mô phỏng</span>
+                    </div>
+                  </div>
+                  <span class="connection-badge demo">
+                    <i class="fa-solid fa-circle"></i>
+                    Demo
+                  </span>
+                </div>
+
+                <div class="system-row">
+                  <div class="system-name">
+                    <div class="system-icon">
+                      <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div>
+                      <strong>Blynk</strong>
+                      <span>Kênh giám sát và điều khiển dự phòng</span>
+                    </div>
+                  </div>
+                  <span class="connection-badge demo">
+                    <i class="fa-solid fa-circle"></i>
+                    Demo
+                  </span>
+                </div>
+              </div>
+
+              <div class="system-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                  Trạng thái hiện tại là dữ liệu giao diện demo. Khi kết nối
+                  backend, các trạng thái sẽ được cập nhật từ Server/API thực
+                  tế.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="settings-modal-overlay" id="memberModal" aria-hidden="true">
+      <div class="settings-modal">
+        <div class="settings-modal-header">
+          <div>
+            <p class="section-label">THÀNH VIÊN</p>
+            <h3>Thêm thành viên gia đình</h3>
+          </div>
+          <button
+            class="modal-close-button"
+            id="closeMemberModal"
+            type="button"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-form">
+          <div class="form-group">
+            <label for="memberName">Họ và tên</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input
+                id="memberName"
+                type="text"
+                placeholder="Ví dụ: Nguyễn Văn An"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="memberRole">Vai trò</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user-shield"></i>
+              <select id="memberRole">
+                <option value="Thành viên">Thành viên</option>
+                <option value="Quản trị viên">Quản trị viên</option>
+                <option value="Khách">Khách</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            id="cancelMemberButton"
+            type="button"
+          >
+            Hủy
+          </button>
+          <button class="primary-button" id="confirmMemberButton" type="button">
+            <i class="fa-solid fa-user-plus"></i> Thêm thành viên
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-modal-overlay" id="rfidModal" aria-hidden="true">
+      <div class="settings-modal">
+        <div class="settings-modal-header">
+          <div>
+            <p class="section-label">RFID</p>
+            <h3>Thêm thẻ RFID</h3>
+          </div>
+          <button class="modal-close-button" id="closeRfidModal" type="button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-form">
+          <div class="form-group">
+            <label for="rfidOwner">Chủ thẻ</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input
+                id="rfidOwner"
+                type="text"
+                placeholder="Tên người sử dụng"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rfidCode">Mã UID thẻ</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-id-card"></i>
+              <input
+                id="rfidCode"
+                type="text"
+                placeholder="Ví dụ: A3 7F 21 B9"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="secondary-button" id="cancelRfidButton" type="button">
+            Hủy
+          </button>
+          <button class="primary-button" id="confirmRfidButton" type="button">
+            <i class="fa-solid fa-plus"></i> Thêm thẻ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="settings-modal-overlay"
+      id="fingerprintModal"
+      aria-hidden="true"
+    >
+      <div class="settings-modal">
+        <div class="settings-modal-header">
+          <div>
+            <p class="section-label">VÂN TAY</p>
+            <h3>Đăng ký vân tay</h3>
+          </div>
+          <button
+            class="modal-close-button"
+            id="closeFingerprintModal"
+            type="button"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="fingerprint-enroll">
+          <div class="fingerprint-visual">
+            <i class="fa-solid fa-fingerprint"></i>
+          </div>
+          <strong>Đăng ký vân tay mới</strong>
+          <p>
+            Hiện tại đây là giao diện mô phỏng. Khi nối Arduino, cảm biến vân
+            tay sẽ thực hiện quá trình quét và lưu ID.
+          </p>
+        </div>
+
+        <div class="modal-form">
+          <div class="form-group">
+            <label for="fingerprintOwner">Người sử dụng</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input
+                id="fingerprintOwner"
+                type="text"
+                placeholder="Tên người sử dụng"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fingerprintId">ID vân tay</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-fingerprint"></i>
+              <input
+                id="fingerprintId"
+                type="number"
+                min="1"
+                placeholder="Ví dụ: 1"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            id="cancelFingerprintButton"
+            type="button"
+          >
+            Hủy
+          </button>
+          <button
+            class="primary-button"
+            id="confirmFingerprintButton"
+            type="button"
+          >
+            <i class="fa-solid fa-fingerprint"></i> Đăng ký
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-toast" id="settingsToast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="settingsToastMessage">Đã lưu cài đặt.</span>
+    </div>
+
+    <script src="../components/sidebar/sidebar.js"></script>
+    <script src="../components/topbar/topbar.js"></script>
+    <script src="../components/notification/notification.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/settings.js"></script>
+  </body>
+</html>

@@ -59,3 +59,22 @@ const demoSensorData = {
 document.addEventListener("DOMContentLoaded", function () {
   updateSensorData(demoSensorData);
 });
+setTimeout(() => {
+  showNotification({
+    type: "success",
+    title: "Kết nối thành công",
+    message: "Hệ thống Smart Home đã sẵn sàng.",
+  });
+}, 1000);
+setTimeout(() => {
+  showEmergencyAlert({
+    id: "test-mq135-001",
+    sensor: "MQ-135 · Chất lượng không khí",
+    title: "Phát hiện chất lượng không khí nguy hiểm!",
+    message:
+      "Nồng độ khí đang vượt ngưỡng an toàn. Vui lòng kiểm tra khu vực ngay.",
+    value: "780 ppm",
+    location: "Phòng khách",
+    time: new Date().toLocaleString("vi-VN"),
+  });
+}, 3000);

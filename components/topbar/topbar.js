@@ -1,107 +1,147 @@
 async function loadTopbar() {
   const container = document.getElementById("topbarContainer");
-
-  if (!container) {
-    return;
-  }
+  if (!container) return;
 
   try {
     const response = await fetch("../components/topbar/topbar.html");
-
-    if (!response.ok) {
-      throw new Error("Không thể tải Topbar");
-    }
+    if (!response.ok) throw new Error("Không thể tải topbar.");
 
     container.innerHTML = await response.text();
 
-    setupTopbar();
-
-    updatePageInfo();
+    initializeTopbar();
   } catch (error) {
-    console.error("Topbar Error:", error);
+    console.error("Topbar error:", error);
   }
 }
 
-/* =========================================
-   TOPBAR
-========================================= */
+function initializeTopbar() {
+  const page = document.body.dataset.page || "dashboard";
 
-function setupTopbar() {
-  const menuButton = document.getElementById("menuButton");
-
-  if (menuButton) {
-    menuButton.addEventListener("click", function () {
-      /*
-          openSidebar nằm trong sidebar.js
-        */
-
-      if (typeof openSidebar === "function") {
-        openSidebar();
-      }
-    });
-  }
-}
-
-/* =========================================
-   PAGE INFO
-========================================= */
-
-function updatePageInfo() {
-  const currentPage = document.body.dataset.page;
-
-  const title = document.getElementById("pageTitle");
-
-  const description = document.getElementById("pageDescription");
-
-  if (!title || !description) {
-    return;
-  }
-
-  const pages = {
+  const pageConfig = {
     dashboard: {
       title: "Tổng quan",
-
       description: "Theo dõi và quản lý ngôi nhà của bạn",
     },
-
     sensors: {
       title: "Cảm biến",
-
       description: "Theo dõi dữ liệu cảm biến trong ngôi nhà",
     },
-
     devices: {
       title: "Thiết bị",
-
-      description: "Theo dõi và điều khiển thiết bị",
+      description: "Theo dõi và điều khiển các thiết bị",
     },
-
     alerts: {
       title: "Cảnh báo",
-
-      description: "Theo dõi các cảnh báo và sự kiện bất thường",
+      description: "Theo dõi lịch sử và trạng thái cảnh báo",
     },
-
     settings: {
       title: "Cài đặt",
-
-      description: "Quản lý cài đặt hệ thống",
+      description: "Quản lý tài khoản và cấu hình hệ thống",
     },
   };
 
-  const page = pages[currentPage];
+  const config = pageConfig[page] || pageConfig.dashboard;
+  const pageTitle = document.getElementById("pageTitle");
+  const pageDescription = document.getElementById("pageDescription");
 
-  if (!page) {
-    return;
+  if (pageTitle) pageTitle.textContent = config.title;
+  if (pageDescription) pageDescription.textContent = config.description;
+
+  /* MOBILE SIDEBAR */
+  document.getElementById("menuButton")?.addEventListener("click", function () {
+    if (typeof window.openSidebar === "function") {
+      window.openSidebar();
+    }
+  });
+
+  /* DROPDOWNS */
+  const notificationButton = document.getElementById("notificationButton");
+  const notificationDropdown = document.getElementById("notificationDropdown");
+  const userProfileButton = document.getElementById("userProfileButton");
+  const userDropdown = document.getElementById("userDropdown");
+  const userArrow = document.getElementById("userArrow");
+
+  function closeNotificationDropdown() {
+    notificationDropdown?.classList.remove("show");
+    notificationButton?.classList.remove("active");
+    notificationButton?.setAttribute("aria-expanded", "false");
   }
 
-  title.textContent = page.title;
+  function closeUserDropdown() {
+    userDropdown?.classList.remove("show");
+    userProfileButton?.classList.remove("active");
+    userProfileButton?.setAttribute("aria-expanded", "false");
+    userArrow?.classList.remove("rotate");
+  }
 
-  description.textContent = page.description;
+  notificationButton?.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    const willOpen = !notificationDropdown.classList.contains("show");
+    closeUserDropdown();
+
+    notificationDropdown.classList.toggle("show", willOpen);
+    notificationButton.classList.toggle("active", willOpen);
+    notificationButton.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  userProfileButton?.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    const willOpen = !userDropdown.classList.contains("show");
+    closeNotificationDropdown();
+
+    userDropdown.classList.toggle("show", willOpen);
+    userProfileButton.classList.toggle("active", willOpen);
+    userProfileButton.setAttribute("aria-expanded", String(willOpen));
+    userArrow?.classList.toggle("rotate", willOpen);
+  });
+
+  notificationDropdown?.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  userDropdown?.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click", function () {
+    closeNotificationDropdown();
+    closeUserDropdown();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeNotificationDropdown();
+      closeUserDropdown();
+    }
+  });
+
+  /* MARK ALL NOTIFICATIONS READ */
+  const markAllReadButton = document.getElementById("markAllReadButton");
+  const notificationDot = document.getElementById("notificationDot");
+  const notificationSummary = document.getElementById("notificationSummary");
+
+  markAllReadButton?.addEventListener("click", function () {
+    document
+      .querySelectorAll("#topbarNotificationList .notification-item")
+      .forEach(function (item) {
+        item.classList.remove("unread");
+      });
+
+    notificationDot?.classList.add("hidden");
+
+    if (notificationSummary) {
+      notificationSummary.textContent = "Không có cảnh báo chưa đọc";
+    }
+  });
+
+  /* LOGOUT */
+  document
+    .getElementById("topbarLogoutButton")
+    ?.addEventListener("click", function () {
+      window.location.href = "login.html";
+    });
 }
-
-/* =========================================
-   START
-========================================= */
 
 document.addEventListener("DOMContentLoaded", loadTopbar);

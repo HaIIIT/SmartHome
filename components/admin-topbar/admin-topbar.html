@@ -1,0 +1,80 @@
+<header class="admin-topbar">
+  <!-- LEFT -->
+  <div class="admin-topbar-left">
+    <button
+      class="admin-topbar-menu-btn"
+      id="adminMenuBtn"
+      type="button"
+      aria-label="Mở menu"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="admin-page-title">
+      <span>ADMIN CONTROL</span>
+      <h1>Quản lý người dùng</h1>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="admin-topbar-right">
+    <!-- SYSTEM STATUS -->
+    <div class="admin-system-status">
+      <span class="admin-status-dot"></span>
+      <span>Hệ thống hoạt động</span>
+    </div>
+
+    <!-- ACCOUNT -->
+    <div class="admin-account">
+      <button class="admin-account-btn" id="adminAccountBtn" type="button">
+        <span class="admin-account-avatar">
+          <i class="fa-solid fa-user-shield"></i>
+        </span>
+
+        <span class="admin-account-info">
+          <strong id="adminTopbarName"> Quản trị viên </strong>
+
+          <small id="adminTopbarEmail"> admin@smarthome.com </small>
+        </span>
+
+        <i class="fa-solid fa-chevron-down admin-account-arrow"></i>
+      </button>
+
+      <!-- DROPDOWN -->
+      <div class="admin-account-dropdown" id="adminAccountDropdown">
+        <div class="admin-dropdown-header">
+          <span class="admin-dropdown-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </span>
+
+          <div>
+            <strong id="adminDropdownName"> Quản trị viên </strong>
+
+            <span id="adminDropdownEmail"> admin@smarthome.com </span>
+          </div>
+        </div>
+
+        <div class="admin-dropdown-role">
+          <i class="fa-solid fa-shield-halved"></i>
+
+          <div>
+            <span>Vai trò</span>
+            <strong>Administrator</strong>
+          </div>
+        </div>
+
+        <div class="admin-dropdown-divider"></div>
+
+        <button
+          class="admin-dropdown-logout"
+          id="adminTopbarLogout"
+          type="button"
+        >
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+          <span>Đăng xuất</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

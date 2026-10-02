@@ -1,0 +1,337 @@
+/* SmartHome Notification System
+   Import file này sau CSS của trang.
+*/
+
+#smNotificationRoot {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: min(365px, calc(100vw - 28px));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.sm-toast {
+  --accent: #168cf0;
+  position: relative;
+  min-height: 70px;
+  padding: 15px 38px 15px 18px;
+  overflow: hidden;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #e4edf5;
+  border-left: 5px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 14px 38px rgba(36, 76, 112, 0.16);
+  animation: smToastIn 0.32s ease both;
+}
+
+.sm-toast.success {
+  --accent: #26a269;
+}
+.sm-toast.error {
+  --accent: #ed3d43;
+}
+.sm-toast.warning {
+  --accent: #ee9b25;
+}
+.sm-toast.info {
+  --accent: #168cf0;
+}
+
+.sm-toast-title {
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.sm-toast-message {
+  color: #718397;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.sm-toast-close {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #a4b1bd;
+  cursor: pointer;
+}
+
+.sm-toast-close:hover {
+  background: #f3f7fa;
+  color: #526a80;
+}
+
+.sm-toast-progress {
+  height: 3px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #edf2f6;
+}
+
+.sm-toast-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: smToastTimer linear forwards;
+}
+
+.sm-toast.leaving {
+  animation: smToastOut 0.25s ease forwards;
+}
+
+/* =========================
+   EMERGENCY SENSOR MODAL
+   ========================= */
+
+.sm-emergency-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(15, 28, 42, 0.62);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease;
+}
+
+.sm-emergency-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sm-emergency-modal {
+  width: min(490px, 100%);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 26px 75px rgba(0, 0, 0, 0.3);
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.24s ease;
+}
+
+.sm-emergency-overlay.show .sm-emergency-modal {
+  transform: translateY(0) scale(1);
+}
+
+.sm-emergency-header {
+  min-height: 82px;
+  padding: 15px 24px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  color: #fff;
+  background: linear-gradient(135deg, #e64242, #c92f35);
+}
+
+.sm-emergency-symbol {
+  width: 57px;
+  height: 57px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  font-size: 26px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(112, 0, 0, 0.2);
+}
+
+.sm-emergency-symbol i {
+  transform: rotate(-45deg);
+}
+
+.sm-emergency-header-text small {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  opacity: 0.82;
+}
+
+.sm-emergency-header-text h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+}
+
+.sm-emergency-body {
+  padding: 24px 28px 26px;
+}
+
+.sm-emergency-sensor {
+  margin-bottom: 7px;
+  color: #e03c42;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sm-emergency-body h3 {
+  margin: 0 0 9px;
+  color: #263b50;
+  font-size: 18px;
+}
+
+.sm-emergency-message {
+  margin: 0;
+  color: #65788a;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.sm-emergency-data {
+  margin-top: 18px;
+  padding: 13px 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  border: 1px solid #e7edf3;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.sm-emergency-data-item span {
+  display: block;
+  margin-bottom: 4px;
+  color: #99a7b4;
+  font-size: 8px;
+}
+
+.sm-emergency-data-item strong {
+  color: #3d5368;
+  font-size: 10px;
+}
+
+.sm-emergency-data-item strong.danger-value {
+  color: #e03c42;
+}
+
+.sm-emergency-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.sm-emergency-button {
+  min-height: 40px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sm-emergency-secondary {
+  border: 1px solid #e0e7ed;
+  background: #fff;
+  color: #687d90;
+}
+
+.sm-emergency-primary {
+  border: 1px solid #d8383e;
+  background: #d8383e;
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(216, 56, 62, 0.18);
+}
+
+.sm-emergency-primary:hover {
+  background: #c92e34;
+}
+
+.sm-emergency-queue {
+  margin-top: 14px;
+  color: #a0acb7;
+  font-size: 8px;
+  text-align: center;
+}
+
+@keyframes smToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes smToastOut {
+  to {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+}
+
+@keyframes smToastTimer {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (max-width: 600px) {
+  #smNotificationRoot {
+    top: 12px;
+    right: 14px;
+  }
+
+  .sm-emergency-header {
+    padding: 14px 18px;
+  }
+
+  .sm-emergency-header-text h2 {
+    font-size: 17px;
+  }
+
+  .sm-emergency-body {
+    padding: 21px 19px 22px;
+  }
+
+  .sm-emergency-data {
+    grid-template-columns: 1fr;
+  }
+
+  .sm-emergency-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sm-emergency-button {
+    width: 100%;
+  }
+}

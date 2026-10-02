@@ -11,30 +11,136 @@
 
     <div class="page-title">
       <h1 id="pageTitle">Tổng quan</h1>
-
       <p id="pageDescription">Theo dõi và quản lý ngôi nhà của bạn</p>
     </div>
   </div>
 
   <div class="topbar-right">
-    <button type="button" class="notification-button" aria-label="Thông báo">
-      <i class="fa-regular fa-bell"></i>
+    <!-- NOTIFICATION -->
+    <div class="topbar-dropdown-wrapper">
+      <button
+        class="notification-button"
+        id="notificationButton"
+        type="button"
+        aria-label="Thông báo"
+        aria-expanded="false"
+      >
+        <i class="fa-regular fa-bell"></i>
+        <span class="notification-dot" id="notificationDot"></span>
+      </button>
 
-      <span class="notification-dot"></span>
-    </button>
+      <div
+        class="topbar-dropdown notification-dropdown"
+        id="notificationDropdown"
+      >
+        <div class="dropdown-header">
+          <div>
+            <strong>Thông báo</strong>
+            <span id="notificationSummary">3 cảnh báo chưa đọc</span>
+          </div>
 
-    <div class="user-profile">
-      <div class="user-avatar">
-        <i class="fa-solid fa-user"></i>
+          <button class="mark-read-button" id="markAllReadButton" type="button">
+            Đánh dấu đã đọc
+          </button>
+        </div>
+
+        <div class="notification-list" id="topbarNotificationList">
+          <a href="alerts.html" class="notification-item unread">
+            <div class="notification-item-icon danger">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <div class="notification-item-content">
+              <strong>Chất lượng không khí nguy hiểm</strong>
+              <p>MQ-135 ghi nhận 780 ppm.</p>
+              <span>Vừa xong</span>
+            </div>
+          </a>
+
+          <a href="alerts.html" class="notification-item unread">
+            <div class="notification-item-icon warning">
+              <i class="fa-solid fa-person-walking"></i>
+            </div>
+            <div class="notification-item-content">
+              <strong>Phát hiện chuyển động</strong>
+              <p>PIR phát hiện chuyển động trong nhà.</p>
+              <span>5 phút trước</span>
+            </div>
+          </a>
+
+          <a href="alerts.html" class="notification-item unread">
+            <div class="notification-item-icon danger">
+              <i class="fa-solid fa-door-closed"></i>
+            </div>
+            <div class="notification-item-content">
+              <strong>RFID bị từ chối</strong>
+              <p>Có thẻ không hợp lệ thử mở cửa.</p>
+              <span>12 phút trước</span>
+            </div>
+          </a>
+        </div>
+
+        <a href="alerts.html" class="view-all-alerts">
+          Xem tất cả cảnh báo
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
       </div>
+    </div>
 
-      <div class="user-info">
-        <strong id="userName"> Người dùng </strong>
+    <!-- USER -->
+    <div class="topbar-dropdown-wrapper">
+      <button
+        class="user-profile"
+        id="userProfileButton"
+        type="button"
+        aria-expanded="false"
+      >
+        <div class="user-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
 
-        <span id="userRole"> User </span>
+        <div class="user-info">
+          <strong id="userName">Người dùng</strong>
+          <span id="userRole">User</span>
+        </div>
+
+        <i class="fa-solid fa-chevron-down user-arrow" id="userArrow"></i>
+      </button>
+
+      <div class="topbar-dropdown user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+          <div class="dropdown-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <strong>Người dùng</strong>
+            <span>User</span>
+          </div>
+        </div>
+
+        <div class="user-dropdown-menu">
+          <a href="settings.html">
+            <i class="fa-solid fa-address-card"></i>
+            <span>Thông tin cá nhân</span>
+          </a>
+
+          <a href="404.html">
+            <i class="fa-solid fa-key"></i>
+            <span>Đổi mật khẩu</span>
+          </a>
+
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Cài đặt</span>
+          </a>
+        </div>
+
+        <div class="user-dropdown-footer">
+          <button id="topbarLogoutButton" type="button">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Đăng xuất</span>
+          </button>
+        </div>
       </div>
-
-      <i class="fa-solid fa-chevron-down user-arrow"></i>
     </div>
   </div>
 </header>

@@ -1,0 +1,593 @@
+<!doctype html>
+
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Smart Home | Cảnh báo</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="../components/topbar/topbar.css" />
+    <link rel="stylesheet" href="../components/notification/notification.css" />
+    <link rel="stylesheet" href="../css/alerts.css" />
+  </head>
+
+  <body data-auth="user">
+    <div class="dashboard-layout">
+      <div id="sidebarContainer"></div>
+
+      <main class="main-content">
+        <div id="topbarContainer"></div>
+
+        <section class="alerts-content">
+          <!-- =====================================
+
+             OVERVIEW
+
+        ====================================== -->
+
+          <div class="alerts-overview">
+            <div>
+              <p class="section-label">SECURITY & ALERTS</p>
+
+              <h2>
+                Trung tâm
+
+                <span>cảnh báo</span>
+              </h2>
+
+              <p class="overview-description">
+                Theo dõi, tìm kiếm và quản lý các cảnh báo trong hệ thống Smart
+                Home.
+              </p>
+            </div>
+
+            <div class="monitor-status">
+              <div class="monitor-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+              <div>
+                <strong>Đang giám sát</strong>
+
+                <span>Hệ thống hoạt động</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================
+
+             STATISTICS
+
+        ====================================== -->
+
+          <div class="statistics-grid">
+            <div class="stat-card">
+              <div class="stat-icon total">
+                <i class="fa-solid fa-bell"></i>
+              </div>
+
+              <div>
+                <span>Tổng cảnh báo</span>
+
+                <strong id="totalAlerts">0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon danger">
+                <i class="fa-solid fa-circle-exclamation"></i>
+              </div>
+
+              <div>
+                <span>Nguy hiểm</span>
+
+                <strong id="dangerAlerts">0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon unresolved">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+
+              <div>
+                <span>Chưa xử lý</span>
+
+                <strong id="unresolvedAlerts">0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon resolved">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div>
+                <span>Đã xử lý</span>
+
+                <strong id="resolvedAlerts">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================
+
+             ALERT SOURCES
+
+        ====================================== -->
+
+          <div class="source-section">
+            <div class="section-header">
+              <div>
+                <p class="section-label">PHÂN LOẠI</p>
+
+                <h3>Cảnh báo theo cảm biến</h3>
+
+                <p>Chọn nguồn để xem riêng các cảnh báo cần tìm.</p>
+              </div>
+
+              <button
+                class="show-all-button active"
+                id="showAllSources"
+                type="button"
+              >
+                <i class="fa-solid fa-layer-group"></i>
+
+                Tất cả
+              </button>
+            </div>
+
+            <div class="source-grid">
+              <!-- TEMPERATURE -->
+
+              <button
+                class="source-card"
+                type="button"
+                data-source="temperature"
+              >
+                <div class="source-top">
+                  <div class="source-icon temperature">
+                    <i class="fa-solid fa-temperature-half"></i>
+                  </div>
+
+                  <i class="fa-solid fa-arrow-right source-arrow"></i>
+                </div>
+
+                <div class="source-info">
+                  <h4>Nhiệt độ</h4>
+
+                  <span>DHT11 / DHT22</span>
+                </div>
+
+                <div class="source-stat">
+                  <div>
+                    <strong id="temperatureTotal">0</strong>
+
+                    <span>Cảnh báo</span>
+                  </div>
+
+                  <div>
+                    <strong id="temperaturePending">0</strong>
+
+                    <span>Chưa xử lý</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- HUMIDITY -->
+
+              <button class="source-card" type="button" data-source="humidity">
+                <div class="source-top">
+                  <div class="source-icon humidity">
+                    <i class="fa-solid fa-droplet"></i>
+                  </div>
+
+                  <i class="fa-solid fa-arrow-right source-arrow"></i>
+                </div>
+
+                <div class="source-info">
+                  <h4>Độ ẩm</h4>
+
+                  <span>DHT11 / DHT22</span>
+                </div>
+
+                <div class="source-stat">
+                  <div>
+                    <strong id="humidityTotal">0</strong>
+
+                    <span>Cảnh báo</span>
+                  </div>
+
+                  <div>
+                    <strong id="humidityPending">0</strong>
+
+                    <span>Chưa xử lý</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- AIR -->
+
+              <button class="source-card" type="button" data-source="air">
+                <div class="source-top">
+                  <div class="source-icon air">
+                    <i class="fa-solid fa-wind"></i>
+                  </div>
+
+                  <i class="fa-solid fa-arrow-right source-arrow"></i>
+                </div>
+
+                <div class="source-info">
+                  <h4>Không khí</h4>
+
+                  <span>MQ-135</span>
+                </div>
+
+                <div class="source-stat">
+                  <div>
+                    <strong id="airTotal">0</strong>
+
+                    <span>Cảnh báo</span>
+                  </div>
+
+                  <div>
+                    <strong id="airPending">0</strong>
+
+                    <span>Chưa xử lý</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- MOTION -->
+
+              <button class="source-card" type="button" data-source="motion">
+                <div class="source-top">
+                  <div class="source-icon motion">
+                    <i class="fa-solid fa-person-walking"></i>
+                  </div>
+
+                  <i class="fa-solid fa-arrow-right source-arrow"></i>
+                </div>
+
+                <div class="source-info">
+                  <h4>Chuyển động</h4>
+
+                  <span>PIR Sensor</span>
+                </div>
+
+                <div class="source-stat">
+                  <div>
+                    <strong id="motionTotal">0</strong>
+
+                    <span>Cảnh báo</span>
+                  </div>
+
+                  <div>
+                    <strong id="motionPending">0</strong>
+
+                    <span>Chưa xử lý</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- DOOR -->
+
+              <button class="source-card" type="button" data-source="door">
+                <div class="source-top">
+                  <div class="source-icon door">
+                    <i class="fa-solid fa-door-closed"></i>
+                  </div>
+
+                  <i class="fa-solid fa-arrow-right source-arrow"></i>
+                </div>
+
+                <div class="source-info">
+                  <h4>Cửa & RFID</h4>
+
+                  <span>Access Control</span>
+                </div>
+
+                <div class="source-stat">
+                  <div>
+                    <strong id="doorTotal">0</strong>
+
+                    <span>Cảnh báo</span>
+                  </div>
+
+                  <div>
+                    <strong id="doorPending">0</strong>
+
+                    <span>Chưa xử lý</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- =====================================
+
+                ALERT HISTORY
+
+            ====================================== -->
+
+          <div class="history-panel">
+            <div class="history-header">
+              <div>
+                <p class="section-label">LỊCH SỬ</p>
+
+                <div class="history-title-row">
+                  <h3 id="historyTitle">Tất cả cảnh báo</h3>
+
+                  <span class="source-filter-badge" id="sourceFilterBadge">
+                    Tất cả nguồn
+                  </span>
+                </div>
+              </div>
+
+              <button
+                class="clear-filter-button"
+                id="clearFilterButton"
+                type="button"
+              >
+                <i class="fa-solid fa-rotate-left"></i>
+
+                Đặt lại bộ lọc
+              </button>
+            </div>
+
+            <!-- FILTERS -->
+
+            <div class="filter-panel">
+              <div class="filter-group">
+                <label for="levelFilter"> Mức độ </label>
+
+                <div class="select-wrapper">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+
+                  <select id="levelFilter">
+                    <option value="all">Tất cả mức độ</option>
+
+                    <option value="danger">Nguy hiểm</option>
+
+                    <option value="warning">Cảnh báo</option>
+
+                    <option value="info">Thông tin</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label for="statusFilter"> Trạng thái </label>
+
+                <div class="select-wrapper">
+                  <i class="fa-solid fa-list-check"></i>
+
+                  <select id="statusFilter">
+                    <option value="all">Tất cả trạng thái</option>
+
+                    <option value="pending">Chưa xử lý</option>
+
+                    <option value="resolved">Đã xử lý</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label for="fromDate"> Từ ngày </label>
+
+                <input type="date" id="fromDate" />
+              </div>
+
+              <div class="filter-group">
+                <label for="toDate"> Đến ngày </label>
+
+                <input type="date" id="toDate" />
+              </div>
+            </div>
+
+            <!-- RESULT INFO -->
+
+            <div class="result-toolbar">
+              <span id="resultCount"> 0 cảnh báo </span>
+
+              <span class="result-hint">
+                <i class="fa-solid fa-filter"></i>
+
+                Kết quả được cập nhật tự động
+              </span>
+            </div>
+
+            <!-- LIST -->
+
+            <div class="alert-list" id="alertList"></div>
+
+            <!-- EMPTY -->
+
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+
+              <strong> Không tìm thấy cảnh báo </strong>
+
+              <p>Hãy thay đổi nguồn cảnh báo hoặc điều kiện lọc.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================
+
+     ALERT DETAIL MODAL
+
+\====================================== -->
+
+        <div
+          class="alert-detail-overlay"
+          id="alertDetailModal"
+          aria-hidden="true"
+        >
+          <div class="alert-detail-modal">
+            <!-- HEADER -->
+
+            <div class="detail-modal-header">
+              <div class="detail-modal-title">
+                <div class="detail-main-icon" id="detailMainIcon">
+                  <i class="fa-solid fa-bell"></i>
+                </div>
+
+                <div>
+                  <span>CHI TIẾT CẢNH BÁO</span>
+
+                  <h3 id="detailTitle">Cảnh báo</h3>
+                </div>
+              </div>
+
+              <button
+                class="detail-close-button"
+                id="closeDetailModal"
+                type="button"
+                aria-label="Đóng"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- STATUS -->
+
+            <div class="detail-status-row">
+              <span class="detail-level" id="detailLevel"> Cảnh báo </span>
+
+              <span class="detail-status" id="detailStatus"> Chưa xử lý </span>
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="detail-description">
+              <p id="detailMessage">Nội dung cảnh báo</p>
+            </div>
+
+            <!-- SENSOR INFORMATION -->
+
+            <div class="detail-section">
+              <div class="detail-section-title">
+                <i class="fa-solid fa-microchip"></i>
+
+                <span> Thông tin cảm biến </span>
+              </div>
+
+              <div class="detail-info-grid">
+                <div class="detail-info-item">
+                  <span>Cảm biến</span>
+
+                  <strong id="detailSensor"> -- </strong>
+                </div>
+
+                <div class="detail-info-item">
+                  <span>Loại cảm biến</span>
+
+                  <strong id="detailSensorType"> -- </strong>
+                </div>
+
+                <div class="detail-info-item">
+                  <span>Vị trí</span>
+
+                  <strong id="detailLocation"> -- </strong>
+                </div>
+
+                <div class="detail-info-item">
+                  <span>Giá trị cảnh báo</span>
+
+                  <strong id="detailValue"> -- </strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- TIME -->
+
+            <div class="detail-section">
+              <div class="detail-section-title">
+                <i class="fa-regular fa-clock"></i>
+
+                <span> Thời gian cảnh báo </span>
+              </div>
+
+              <div class="alert-time-line">
+                <!-- START -->
+
+                <div class="time-point">
+                  <div class="time-dot start">
+                    <i class="fa-solid fa-bell"></i>
+                  </div>
+
+                  <div class="time-content">
+                    <span> Bắt đầu cảnh báo </span>
+
+                    <strong id="detailStartTime"> -- </strong>
+                  </div>
+                </div>
+
+                <!-- LINE -->
+
+                <div class="time-duration">
+                  <div class="duration-line"></div>
+
+                  <div class="duration-value">
+                    <i class="fa-regular fa-hourglass-half"></i>
+
+                    <span id="detailDuration"> -- </span>
+                  </div>
+                </div>
+
+                <!-- END -->
+
+                <div class="time-point">
+                  <div class="time-dot end">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+
+                  <div class="time-content">
+                    <span> Kết thúc cảnh báo </span>
+
+                    <strong id="detailEndTime"> -- </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="detail-modal-footer">
+              <button
+                class="detail-close-footer"
+                id="closeDetailFooter"
+                type="button"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../components/sidebar/sidebar.js"></script>
+    <script src="../components/topbar/topbar.js"></script>
+    <script src="../components/notification/notification.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/alerts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<aside class="admin-sidebar" id="adminSidebar">
+  <!-- LOGO -->
+  <div class="admin-sidebar-header">
+    <a href="admin.html" class="admin-brand">
+      <img src="../img/logo.png" alt="SmartHome" />
+
+      <div class="admin-brand-text">
+        <strong>SmartHome</strong>
+        <span>ADMIN CONTROL</span>
+      </div>
+    </a>
+
+    <button
+      class="admin-sidebar-close"
+      id="adminSidebarClose"
+      type="button"
+      aria-label="Đóng menu"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <!-- MENU -->
+  <nav class="admin-sidebar-menu">
+    <p class="admin-menu-title">QUẢN LÝ</p>
+
+    <a href="admin.html" class="admin-sidebar-link active" data-page="admin">
+      <span class="admin-menu-icon">
+        <i class="fa-solid fa-users"></i>
+      </span>
+
+      <span>Người dùng</span>
+    </a>
+  </nav>
+
+  <!-- BOTTOM -->
+  <div class="admin-sidebar-bottom">
+    <div class="admin-sidebar-account">
+      <div class="admin-sidebar-avatar">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+
+      <div class="admin-sidebar-user-info">
+        <strong id="adminSidebarName"> Quản trị viên </strong>
+
+        <span> Administrator </span>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="admin-sidebar-link admin-logout-button"
+      id="adminLogoutBtn"
+    >
+      <span class="admin-menu-icon">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </span>
+
+      <span>Đăng xuất</span>
+    </button>
+  </div>
+</aside>
+
+<!-- MOBILE OVERLAY -->
+<div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>

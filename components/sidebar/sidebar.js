@@ -1,3 +1,11 @@
+/* =========================================
+   SMART HOME - SIDEBAR
+========================================= */
+
+/* =========================================
+   LOAD SIDEBAR
+========================================= */
+
 async function loadSidebar() {
   const container = document.getElementById("sidebarContainer");
 
@@ -14,7 +22,10 @@ async function loadSidebar() {
 
     container.innerHTML = await response.text();
 
-    // Sau khi HTML được load mới chạy chức năng
+    /* =====================================
+       SETUP SAU KHI LOAD HTML
+    ===================================== */
+
     setupSidebar();
 
     setActiveSidebar();
@@ -40,14 +51,14 @@ function setupSidebar() {
     return;
   }
 
-  if (closeButton) {
-    closeButton.addEventListener("click", closeSidebar);
-  }
+  closeButton?.addEventListener("click", closeSidebar);
 
-  if (overlay) {
-    overlay.addEventListener("click", closeSidebar);
-  }
+  overlay?.addEventListener("click", closeSidebar);
 }
+
+/* =========================================
+   OPEN SIDEBAR
+========================================= */
 
 function openSidebar() {
   const sidebar = document.getElementById("sidebar");
@@ -58,6 +69,10 @@ function openSidebar() {
 
   overlay?.classList.add("show");
 }
+
+/* =========================================
+   CLOSE SIDEBAR
+========================================= */
 
 function closeSidebar() {
   const sidebar = document.getElementById("sidebar");
@@ -88,7 +103,7 @@ function setActiveSidebar() {
 }
 
 /* =========================================
-   LOGOUT
+   SETUP LOGOUT
 ========================================= */
 
 function setupLogout() {
@@ -98,9 +113,71 @@ function setupLogout() {
     return;
   }
 
-  logoutButton.addEventListener("click", function () {
-    window.location.href = "login.html";
-  });
+  logoutButton.addEventListener("click", logout);
+}
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+async function logout() {
+  const logoutButton = document.getElementById("logoutBtn");
+
+  /* =====================================
+     LOADING
+  ===================================== */
+
+  if (logoutButton) {
+    logoutButton.disabled = true;
+
+    logoutButton.innerHTML = `
+      <i class="fa-solid fa-spinner fa-spin"></i>
+
+      <span>
+        Đang đăng xuất...
+      </span>
+    `;
+  }
+
+  try {
+    /* ===================================
+       GOI PHP LOGOUT
+    =================================== */
+
+    const response = await fetch("../php/logout.php", {
+      method: "POST",
+
+      credentials: "same-origin",
+
+      cache: "no-store",
+    });
+
+    let data = null;
+
+    try {
+      data = await response.json();
+    } catch (error) {
+      throw new Error("Phản hồi đăng xuất không hợp lệ.");
+    }
+
+    if (!response.ok || !data.success) {
+      throw new Error(data?.message || "Không thể đăng xuất.");
+    }
+  } catch (error) {
+    console.error("Logout Error:", error);
+  } finally {
+    /* ===================================
+       XOA FRONTEND SESSION
+    =================================== */
+
+    localStorage.removeItem("smarthome_user");
+
+    /* ===================================
+       VE LOGIN
+    =================================== */
+
+    window.location.replace("login.html");
+  }
 }
 
 /* =========================================
@@ -108,3 +185,11 @@ function setupLogout() {
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", loadSidebar);
+
+/* =========================================
+   GLOBAL FUNCTIONS
+========================================= */
+
+window.openSidebar = openSidebar;
+
+window.closeSidebar = closeSidebar;

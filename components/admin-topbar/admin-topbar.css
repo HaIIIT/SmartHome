@@ -1,0 +1,544 @@
+/* =========================================
+   ADMIN TOPBAR
+========================================= */
+
+.admin-topbar {
+  position: sticky;
+
+  top: 0;
+
+  height: 72px;
+
+  padding: 0 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #e5edf4;
+
+  backdrop-filter: blur(12px);
+
+  z-index: 9000;
+}
+
+/* =========================================
+   LEFT
+========================================= */
+
+.admin-topbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.admin-topbar-menu-btn {
+  width: 38px;
+  height: 38px;
+
+  display: none;
+
+  place-items: center;
+
+  border: 1px solid #e1eaf1;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #60788d;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.admin-topbar-menu-btn:hover {
+  background: #f3f9ff;
+
+  color: #168cf0;
+
+  border-color: #d4e8f8;
+}
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.admin-page-title {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-page-title span {
+  color: #168cf0;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.admin-page-title h1 {
+  margin: 3px 0 0;
+
+  color: #304a61;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+/* =========================================
+   RIGHT
+========================================= */
+
+.admin-topbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+/* =========================================
+   SYSTEM STATUS
+========================================= */
+
+.admin-system-status {
+  min-height: 31px;
+
+  padding: 0 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border-radius: 20px;
+
+  background: #eef9f3;
+
+  color: #39916a;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.admin-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #36ad74;
+
+  box-shadow: 0 0 0 4px rgba(54, 173, 116, 0.1);
+
+  animation: adminStatusPulse 2s infinite;
+}
+
+@keyframes adminStatusPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(54, 173, 116, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(54, 173, 116, 0.05);
+  }
+}
+
+/* =========================================
+   ACCOUNT
+========================================= */
+
+.admin-account {
+  position: relative;
+}
+
+.admin-account-btn {
+  min-height: 45px;
+
+  padding: 5px 8px 5px 5px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid transparent;
+
+  border-radius: 11px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.admin-account-btn:hover,
+.admin-account-btn.active {
+  border-color: #e3ebf2;
+
+  background: #f8fbfd;
+}
+
+/* =========================================
+   AVATAR
+========================================= */
+
+.admin-account-avatar {
+  width: 35px;
+  height: 35px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: #eaf6ff;
+
+  color: #168cf0;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   ACCOUNT INFO
+========================================= */
+
+.admin-account-info {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.admin-account-info strong {
+  max-width: 140px;
+
+  overflow: hidden;
+
+  color: #40596f;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.admin-account-info small {
+  max-width: 150px;
+
+  margin-top: 2px;
+
+  overflow: hidden;
+
+  color: #9aa8b5;
+
+  font-size: 7px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.admin-account-arrow {
+  margin-left: 2px;
+
+  color: #a0aebb;
+
+  font-size: 8px;
+
+  transition: transform 0.2s ease;
+}
+
+.admin-account-btn.active .admin-account-arrow {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   ACCOUNT DROPDOWN
+========================================= */
+
+.admin-account-dropdown {
+  position: absolute;
+
+  top: calc(100% + 9px);
+
+  right: 0;
+
+  width: 225px;
+
+  padding: 9px;
+
+  border: 1px solid #e3ebf2;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  box-shadow: 0 18px 45px rgba(43, 68, 91, 0.14);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform: translateY(-6px) scale(0.98);
+
+  transform-origin: top right;
+
+  transition: 0.18s ease;
+}
+
+.admin-account-dropdown.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateY(0) scale(1);
+}
+
+/* =========================================
+   DROPDOWN HEADER
+========================================= */
+
+.admin-dropdown-header {
+  padding: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.admin-dropdown-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: #eaf6ff;
+
+  color: #168cf0;
+
+  font-size: 13px;
+}
+
+.admin-dropdown-header div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-dropdown-header strong {
+  overflow: hidden;
+
+  color: #40596f;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.admin-dropdown-header div span {
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  color: #98a7b4;
+
+  font-size: 7px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================================
+   ROLE
+========================================= */
+
+.admin-dropdown-role {
+  margin-top: 5px;
+
+  padding: 9px 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border-radius: 9px;
+
+  background: #f7faff;
+}
+
+.admin-dropdown-role > i {
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 7px;
+
+  background: #eaf6ff;
+
+  color: #168cf0;
+
+  font-size: 9px;
+}
+
+.admin-dropdown-role div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-dropdown-role div span {
+  color: #9aa8b5;
+
+  font-size: 7px;
+}
+
+.admin-dropdown-role strong {
+  margin-top: 2px;
+
+  color: #536b80;
+
+  font-size: 8px;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.admin-dropdown-divider {
+  height: 1px;
+
+  margin: 8px 0;
+
+  background: #edf2f6;
+}
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.admin-dropdown-logout {
+  width: 100%;
+
+  min-height: 37px;
+
+  padding: 0 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #dc4c52;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.admin-dropdown-logout:hover {
+  background: #fff1f1;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .admin-topbar-menu-btn {
+    display: grid;
+  }
+}
+
+@media (max-width: 620px) {
+  .admin-topbar {
+    height: 64px;
+
+    padding: 0 14px;
+  }
+
+  .admin-page-title h1 {
+    font-size: 14px;
+  }
+
+  .admin-system-status {
+    display: none;
+  }
+
+  .admin-account-info,
+  .admin-account-arrow {
+    display: none;
+  }
+
+  .admin-account-btn {
+    padding: 4px;
+  }
+
+  .admin-account-avatar {
+    width: 35px;
+    height: 35px;
+  }
+}
