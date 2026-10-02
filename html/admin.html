@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SmartHome | Quản lý người dùng</title>
+
+    <!--Favicon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../ico/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../ico/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../ico/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../ico/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../ico/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../ico/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../ico/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../ico/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../ico/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../ico/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../ico/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../ico/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../ico/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./ico/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--End Favicon-->
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- ADMIN COMPONENTS -->
+    <link
+      rel="stylesheet"
+      href="../components/admin-sidebar/admin-sidebar.css"
+    />
+
+    <link rel="stylesheet" href="../components/admin-topbar/admin-topbar.css" />
+
+    <!-- NOTIFICATION -->
+    <link rel="stylesheet" href="../components/notification/notification.css" />
+
+    <!-- PAGE -->
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+
+  <body>
+    <!-- ======================================
+       ADMIN SIDEBAR
+  ======================================= -->
+
+    <div id="adminSidebarContainer"></div>
+
+    <!-- ======================================
+       MAIN
+  ======================================= -->
+
+    <main class="admin-main">
+      <!-- TOPBAR -->
+      <div id="adminTopbarContainer"></div>
+
+      <!-- ====================================
+         PAGE CONTENT
+    ===================================== -->
+
+      <section class="admin-content">
+        <!-- PAGE HEADER -->
+
+        <div class="admin-page-header">
+          <div>
+            <span class="admin-page-label">
+              <i class="fa-solid fa-users-gear"></i>
+
+              QUẢN LÝ TÀI KHOẢN
+            </span>
+
+            <h2>Người dùng</h2>
+
+            <p>Quản lý các tài khoản được phép truy cập hệ thống SmartHome.</p>
+          </div>
+
+          <button class="admin-primary-button" id="addUserButton" type="button">
+            <i class="fa-solid fa-user-plus"></i>
+
+            <span> Thêm người dùng </span>
+          </button>
+        </div>
+
+        <!-- ==================================
+           STATISTICS
+      =================================== -->
+
+        <div class="admin-statistics">
+          <!-- TOTAL -->
+
+          <article class="admin-stat-card">
+            <div class="admin-stat-icon blue">
+              <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+              <span> Tổng người dùng </span>
+
+              <strong id="totalUsers"> 0 </strong>
+            </div>
+          </article>
+
+          <!-- ACTIVE -->
+
+          <article class="admin-stat-card">
+            <div class="admin-stat-icon green">
+              <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <div>
+              <span> Đang hoạt động </span>
+
+              <strong id="activeUsers"> 0 </strong>
+            </div>
+          </article>
+
+          <!-- LOCKED -->
+
+          <article class="admin-stat-card">
+            <div class="admin-stat-icon red">
+              <i class="fa-solid fa-user-lock"></i>
+            </div>
+
+            <div>
+              <span> Đã khóa </span>
+
+              <strong id="lockedUsers"> 0 </strong>
+            </div>
+          </article>
+        </div>
+
+        <!-- ==================================
+           USER LIST
+      =================================== -->
+
+        <section class="admin-user-panel">
+          <!-- TOOLBAR -->
+
+          <div class="admin-user-toolbar">
+            <!-- SEARCH -->
+
+            <div class="admin-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+
+              <input
+                id="userSearch"
+                type="search"
+                placeholder="Tìm theo họ tên hoặc email..."
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- FILTER -->
+
+            <div class="admin-filter">
+              <i class="fa-solid fa-filter"></i>
+
+              <select id="statusFilter">
+                <option value="all">Tất cả trạng thái</option>
+
+                <option value="hoat_dong">Hoạt động</option>
+
+                <option value="khoa">Đã khóa</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TABLE -->
+
+          <div class="admin-table-wrapper">
+            <table class="admin-user-table">
+              <thead>
+                <tr>
+                  <th>Người dùng</th>
+
+                  <th>Email</th>
+
+                  <th>Vai trò</th>
+
+                  <th>Trạng thái</th>
+
+                  <th>Ngày tạo</th>
+
+                  <th>Đăng nhập cuối</th>
+
+                  <th class="admin-action-column">Thao tác</th>
+                </tr>
+              </thead>
+
+              <tbody id="userTableBody">
+                <!-- JS RENDER -->
+              </tbody>
+            </table>
+
+            <!-- EMPTY -->
+
+            <div class="admin-empty-state" id="emptyState">
+              <div class="admin-empty-icon">
+                <i class="fa-solid fa-users-slash"></i>
+              </div>
+
+              <strong> Không tìm thấy người dùng </strong>
+
+              <span> Hãy thử thay đổi từ khóa hoặc trạng thái tìm kiếm. </span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- ======================================
+       ADD / EDIT USER MODAL
+  ======================================= -->
+
+    <div class="admin-modal-overlay" id="userModal">
+      <section class="admin-modal">
+        <!-- HEADER -->
+
+        <div class="admin-modal-header">
+          <div>
+            <span> SMART HOME ADMIN </span>
+
+            <h3 id="userModalTitle">Thêm người dùng</h3>
+          </div>
+
+          <button
+            class="admin-modal-close"
+            id="closeUserModal"
+            type="button"
+            aria-label="Đóng"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- FORM -->
+
+        <form id="userForm">
+          <input type="hidden" id="editUserId" />
+
+          <!-- NAME -->
+
+          <div class="admin-form-field">
+            <label for="fullName"> Họ và tên </label>
+
+            <div class="admin-form-input">
+              <i class="fa-solid fa-user"></i>
+
+              <input
+                id="fullName"
+                type="text"
+                placeholder="Nhập họ và tên"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- EMAIL -->
+
+          <div class="admin-form-field">
+            <label for="email"> Email đăng nhập </label>
+
+            <div class="admin-form-input">
+              <i class="fa-solid fa-envelope"></i>
+
+              <input
+                id="email"
+                type="email"
+                placeholder="example@gmail.com"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- PASSWORD -->
+
+          <div class="admin-form-field" id="passwordField">
+            <label for="newPassword"> Mật khẩu </label>
+
+            <div class="admin-form-input">
+              <i class="fa-solid fa-lock"></i>
+
+              <input
+                id="newPassword"
+                type="password"
+                placeholder="Tối thiểu 6 ký tự"
+              />
+
+              <button
+                class="admin-password-toggle"
+                id="toggleNewPassword"
+                type="button"
+                aria-label="Hiện mật khẩu"
+              >
+                <i class="fa-solid fa-eye" id="newPasswordEye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- NOTE -->
+
+          <div class="admin-form-note" id="passwordNote">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span>
+              Người dùng sẽ sử dụng email và mật khẩu này để đăng nhập.
+            </span>
+          </div>
+
+          <!-- BUTTONS -->
+
+          <div class="admin-modal-actions">
+            <button
+              class="admin-secondary-button"
+              id="cancelUserButton"
+              type="button"
+            >
+              Hủy
+            </button>
+
+            <button class="admin-primary-button" type="submit">
+              <i class="fa-solid fa-floppy-disk"></i>
+
+              <span id="saveUserText"> Thêm người dùng </span>
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- ======================================
+       CONFIRM MODAL
+  ======================================= -->
+
+    <div class="admin-modal-overlay" id="confirmModal">
+      <section class="admin-modal admin-confirm-modal">
+        <div class="admin-confirm-icon" id="confirmIcon">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <h3 id="confirmTitle">Xác nhận thao tác</h3>
+
+        <p id="confirmMessage"></p>
+
+        <div class="admin-modal-actions center">
+          <button
+            class="admin-secondary-button"
+            id="cancelConfirmButton"
+            type="button"
+          >
+            Hủy
+          </button>
+
+          <button
+            class="admin-danger-button"
+            id="confirmActionButton"
+            type="button"
+          >
+            Xác nhận
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================================
+       RESET PASSWORD MODAL
+  ======================================= -->
+
+    <div class="admin-modal-overlay" id="resetPasswordModal">
+      <section class="admin-modal admin-small-modal">
+        <div class="admin-modal-header">
+          <div>
+            <span> BẢO MẬT </span>
+
+            <h3>Đặt lại mật khẩu</h3>
+          </div>
+
+          <button
+            class="admin-modal-close"
+            id="closeResetPassword"
+            type="button"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <p class="admin-reset-user">
+          Tài khoản:
+
+          <strong id="resetPasswordEmail"></strong>
+        </p>
+
+        <div class="admin-form-field">
+          <label for="resetPasswordInput"> Mật khẩu mới </label>
+
+          <div class="admin-form-input">
+            <i class="fa-solid fa-key"></i>
+
+            <input
+              id="resetPasswordInput"
+              type="password"
+              placeholder="Tối thiểu 6 ký tự"
+            />
+          </div>
+        </div>
+
+        <div class="admin-modal-actions">
+          <button
+            class="admin-secondary-button"
+            id="cancelResetPassword"
+            type="button"
+          >
+            Hủy
+          </button>
+
+          <button
+            class="admin-primary-button"
+            id="saveResetPassword"
+            type="button"
+          >
+            <i class="fa-solid fa-key"></i>
+
+            Đặt lại mật khẩu
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================================
+       SCRIPTS
+  ======================================= -->
+
+    <script src="../components/admin-sidebar/admin-sidebar.js"></script>
+
+    <script src="../components/admin-topbar/admin-topbar.js"></script>
+
+    <script src="../components/notification/notification.js"></script>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>
